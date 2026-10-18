@@ -67,7 +67,7 @@ function CardFoil({ card }) {
       transition={{ type: 'spring', stiffness: 260, damping: 18 }}
       className={`relative overflow-hidden rounded-[1.7rem] border border-white/20 bg-gradient-to-br ${tone} p-[1px] shadow-2xl`}
     >
-      <div className="relative min-h-56 rounded-[1.65rem] bg-slate-950/88 p-4">
+      <div className="relative min-h-56 rounded-[1.65rem]  p-4">
         <div className="absolute inset-0 opacity-40 mix-blend-screen bg-[radial-gradient(circle_at_20%_10%,white,transparent_20%),linear-gradient(115deg,transparent_20%,rgba(255,255,255,.28),transparent_45%)]" />
         <div className="relative">
           <div className="flex items-start justify-between">
@@ -123,7 +123,7 @@ function BoardItem({ title, meta, action }) {
     <div className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-black/20 p-3 sm:flex-row sm:items-center sm:justify-between">
       <div>
         <div className="font-semibold text-white">{title}</div>
-        {meta && <div className="mt-1 text-sm text-white/52">{meta}</div>}
+        {meta && <div className="mt-1 text-sm ">{meta}</div>}
       </div>
       {action}
     </div>
@@ -255,7 +255,7 @@ export default function EconomyHub() {
               description="Use one amount field for borrowing, staking, and raid attacks. Loans are leverage; staking is slower and safer."
               tone="amber"
             >
-              <input value={amount} onChange={e => setAmount(e.target.value)} className="input mt-1 px-4 py-3 text-white outline-none" />
+              <input value={amount} onChange={e => setAmount(e.target.value)} className="input mt-1 px-4 py-3 text-white outline-hidden" />
               <div className="mt-3 grid grid-cols-2 gap-2">
                 <ActionButton onClick={() => post('/loans', { amount: Number(amount) })}>Borrow</ActionButton>
                 <ActionButton onClick={() => post('/insurance', { type: 'casino' })}>Insure</ActionButton>
@@ -278,8 +278,8 @@ export default function EconomyHub() {
                 </div>
               ) : (
                 <div className="mt-3 space-y-2">
-                  <input value={guildName} onChange={e => setGuildName(e.target.value)} placeholder="Guild name" className="input px-4 py-3 text-white outline-none" />
-                  <input value={guildTag} onChange={e => setGuildTag(e.target.value)} placeholder="TAG" className="input px-4 py-3 text-white outline-none" />
+                  <input value={guildName} onChange={e => setGuildName(e.target.value)} placeholder="Guild name" className="input px-4 py-3 text-white outline-hidden" />
+                  <input value={guildTag} onChange={e => setGuildTag(e.target.value)} placeholder="TAG" className="input px-4 py-3 text-white outline-hidden" />
                   <ActionButton onClick={() => post('/guilds', { name: guildName, tag: guildTag })}>Create guild</ActionButton>
                 </div>
               )}

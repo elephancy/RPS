@@ -55,8 +55,8 @@ function OptionButton({ option, selected, onAdd }) {
       onClick={onAdd}
       className={`group flex w-full items-center justify-between gap-3 rounded-2xl border px-4 py-3 text-left transition ${
         selected
-          ? 'border-cyan-200/40 bg-cyan-300/12 text-cyan-50'
-          : 'border-white/10 bg-black/20 text-white/78 hover:bg-white/[0.07]'
+          ? 'border-cyan-200/40  text-cyan-50'
+          : 'border-white/10 bg-black/20  hover:bg-white/[0.07]'
       }`}
     >
       <span className="flex min-w-0 items-center gap-2">
@@ -233,10 +233,10 @@ export default function Parlay() {
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <Droppable id="drop-zone" count={selectionList.length}>
               {selectionList.length === 0 ? (
-                <div className="grid min-h-[190px] place-items-center rounded-[26px] border border-dashed border-white/12 bg-black/20 p-6 text-center">
+                <div className="grid min-h-[190px] place-items-center rounded-[26px] border border-dashed  bg-black/20 p-6 text-center">
                   <div>
                     <Layers3 className="mx-auto mb-3 h-8 w-8 text-white/35" />
-                    <p className="text-white/58">Drop or tap at least two legs to build a ticket.</p>
+                    <p className="">Drop or tap at least two legs to build a ticket.</p>
                   </div>
                 </div>
               ) : (
@@ -244,7 +244,7 @@ export default function Parlay() {
                   {selectionList.map((selection) => (
                     <li
                       key={selection.betId}
-                      className="rounded-2xl border border-white/10 bg-black/24 p-4"
+                      className="rounded-2xl border border-white/10  p-4"
                     >
                       <div className="flex items-start justify-between gap-3">
                         <div className="min-w-0">
@@ -254,7 +254,7 @@ export default function Parlay() {
                         <button
                           type="button"
                           onClick={() => removeSelection(selection.betId)}
-                          className="rounded-full border border-white/10 bg-white/[0.05] p-2 text-white/50 transition hover:bg-rose-400/12 hover:text-rose-100"
+                          className="rounded-full border border-white/10 bg-white/[0.05] p-2 text-white/50 transition  hover:text-rose-100"
                           aria-label={`Remove ${selection.choice}`}
                         >
                           <Trash2 className="h-4 w-4" />
@@ -283,14 +283,14 @@ export default function Parlay() {
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
                 placeholder="Enter wager amount"
-                className="input px-4 py-3 text-white outline-none"
+                className="input px-4 py-3 text-white outline-hidden"
               />
               <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
-                <div className="rounded-2xl bg-black/24 p-3">
+                <div className="rounded-2xl  p-3">
                   <div className="text-white/40">Total odds</div>
                   <div className="mt-1 text-lg font-black">{Number(totalOdds || 1).toFixed(2)}x</div>
                 </div>
-                <div className="rounded-2xl bg-black/24 p-3">
+                <div className="rounded-2xl  p-3">
                   <div className="text-white/40">Potential return</div>
                   <div className="mt-1 text-lg font-black text-emerald-100">{Number(payout || 0).toFixed(0)}</div>
                 </div>

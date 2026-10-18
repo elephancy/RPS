@@ -176,7 +176,7 @@ export default function BreedingPage() {
       .catch(e => toast.error(e.response?.data?.error || 'Hatch failed'));
   };
 
-  const selectClasses = 'input px-4 py-3 text-white outline-none [&>option]:bg-slate-950 [&>option]:text-white';
+  const selectClasses = 'input px-4 py-3 text-white outline-hidden [&>option]:bg-slate-950 [&>option]:text-white';
 
   return (
     <PageFrame className="bg-[radial-gradient(circle_at_15%_0%,rgba(34,197,94,0.14),transparent_32%),radial-gradient(circle_at_85%_8%,rgba(244,114,182,0.12),transparent_30%),linear-gradient(180deg,#030712_0%,#09090b_55%,#020202_100%)]">
@@ -209,7 +209,7 @@ export default function BreedingPage() {
           const val = side === 'A' ? parentA : parentB;
           return (
             <div key={side}>
-              <label className="mb-2 block text-sm font-semibold text-white/72">Parent {side}</label>
+              <label className="mb-2 block text-sm font-semibold ">Parent {side}</label>
               <select
                 value={val}
                 onChange={e => setter(e.target.value)}
@@ -232,7 +232,7 @@ export default function BreedingPage() {
 
         <div className="flex flex-col justify-center">
           <div className="mb-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
-            <label className={`flex cursor-pointer items-center rounded-2xl border px-4 py-3 text-sm transition ${paymentMethod === 'pet' ? 'border-emerald-200/35 bg-emerald-300/12 text-emerald-50' : 'border-white/10 bg-black/20 text-white/65'}`}>
+            <label className={`flex cursor-pointer items-center rounded-2xl border px-4 py-3 text-sm transition ${paymentMethod === 'pet' ? 'border-emerald-200/35  text-emerald-50' : 'border-white/10 bg-black/20 text-white/65'}`}>
               <input
                 type="radio"
                 name="pay"
@@ -243,7 +243,7 @@ export default function BreedingPage() {
               />
               Pet Coins ({PET_COST})
             </label>
-            <label className={`flex cursor-pointer items-center rounded-2xl border px-4 py-3 text-sm transition ${paymentMethod === 'gold' ? 'border-amber-200/35 bg-amber-300/12 text-amber-50' : 'border-white/10 bg-black/20 text-white/65'}`}>
+            <label className={`flex cursor-pointer items-center rounded-2xl border px-4 py-3 text-sm transition ${paymentMethod === 'gold' ? 'border-amber-200/35  text-amber-50' : 'border-white/10 bg-black/20 text-white/65'}`}>
               <input
                 type="radio"
                 name="pay"

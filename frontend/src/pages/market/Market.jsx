@@ -126,10 +126,10 @@ function MarketChart({ asset }) {
       <div className="relative">
         <div className="mb-3 flex items-start justify-between gap-3">
           <div>
-            <div className="text-[10px] uppercase tracking-[0.26em] text-white/38">Price action</div>
+            <div className="text-[10px] uppercase tracking-[0.26em] ">Price action</div>
             <div className="mt-1 text-2xl font-black text-white">{Number(last || 0).toLocaleString()}</div>
           </div>
-          <div className={`rounded-full border px-3 py-1 text-xs font-black ${positive ? 'border-emerald-200/25 bg-emerald-300/12 text-emerald-100' : 'border-rose-200/25 bg-rose-300/12 text-rose-100'}`}>
+          <div className={`rounded-full border px-3 py-1 text-xs font-black ${positive ? 'border-emerald-200/25  text-emerald-100' : 'border-rose-200/25  text-rose-100'}`}>
             {positive ? '+' : ''}{formatPercent(changePct)}
           </div>
         </div>
@@ -168,15 +168,15 @@ function MarketChart({ asset }) {
         </svg>
 
         <div className="mt-3 grid grid-cols-3 gap-2 text-xs">
-          <div className="rounded-2xl bg-black/22 p-2">
+          <div className="rounded-2xl  p-2">
             <div className="text-white/35">Low</div>
             <div className="mt-1 font-bold text-white/80">{Math.round(min).toLocaleString()}</div>
           </div>
-          <div className="rounded-2xl bg-black/22 p-2">
+          <div className="rounded-2xl  p-2">
             <div className="text-white/35">High</div>
             <div className="mt-1 font-bold text-white/80">{Math.round(max).toLocaleString()}</div>
           </div>
-          <div className="rounded-2xl bg-black/22 p-2">
+          <div className="rounded-2xl  p-2">
             <div className="text-white/35">Ticks</div>
             <div className="mt-1 font-bold text-white/80">{history.length || 'Live'}</div>
           </div>
@@ -401,7 +401,7 @@ export default function Market() {
             <button
               type="button"
               onClick={loadMarket}
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-4 py-2 text-sm text-white/85 transition hover:bg-white/14"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10  px-4 py-2 text-sm text-white/85 transition "
             >
               <RefreshCcw size={16} />
               Refresh
@@ -433,7 +433,7 @@ export default function Market() {
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Search assets, symbols, or descriptions"
-              className="input px-4 py-3 outline-none"
+              className="input px-4 py-3 outline-hidden"
             />
             <div className="flex flex-wrap gap-2">
               {marketCategories.map((category) => (
@@ -443,8 +443,8 @@ export default function Market() {
                   onClick={() => setCategoryFilter(category)}
                   className={`rounded-full border px-4 py-2 text-sm font-semibold capitalize transition ${
                     categoryFilter === category
-                      ? 'border-cyan-200/35 bg-cyan-300/14 text-cyan-50'
-                      : 'border-white/10 bg-black/20 text-white/62 hover:bg-white/10 hover:text-white'
+                      ? 'border-cyan-200/35  text-cyan-50'
+                      : 'border-white/10 bg-black/20  hover:bg-white/10 hover:text-white'
                   }`}
                 >
                   {category.replace('-', ' ')}
@@ -464,15 +464,15 @@ export default function Market() {
                   onClick={() => setRiskFilter(level)}
                   className={`rounded-full border px-4 py-2 text-sm font-semibold capitalize transition ${
                     riskFilter === level
-                      ? 'border-emerald-200/35 bg-emerald-300/14 text-emerald-50'
-                      : 'border-white/10 bg-black/20 text-white/62 hover:bg-white/10 hover:text-white'
+                      ? 'border-emerald-200/35  text-emerald-50'
+                      : 'border-white/10 bg-black/20  hover:bg-white/10 hover:text-white'
                   }`}
                 >
                   {level === 'all' ? 'All risk' : `${level} risk`}
                 </button>
               ))}
             </div>
-            <select value={sortBy} onChange={event => setSortBy(event.target.value)} className="select px-4 py-3 text-sm outline-none">
+            <select value={sortBy} onChange={event => setSortBy(event.target.value)} className="select px-4 py-3 text-sm outline-hidden">
               <option value="symbol">Sort by symbol</option>
               <option value="name">Sort by name</option>
               <option value="price-desc">Price high to low</option>
@@ -480,7 +480,7 @@ export default function Market() {
               <option value="risk-desc">Highest risk</option>
               <option value="dividend-desc">Highest dividend</option>
             </select>
-            <select value={pageSize} onChange={event => setPageSize(Number(event.target.value))} className="select px-4 py-3 text-sm outline-none">
+            <select value={pageSize} onChange={event => setPageSize(Number(event.target.value))} className="select px-4 py-3 text-sm outline-hidden">
               {PAGE_SIZE_OPTIONS.map(size => <option key={size} value={size}>{size} per page</option>)}
             </select>
           </div>
@@ -560,7 +560,7 @@ export default function Market() {
                       min="1"
                       value={amounts[asset.symbol] || 1}
                       onChange={(e) => setAmounts(prev => ({ ...prev, [asset.symbol]: e.target.value }))}
-                      className="w-full rounded-2xl border border-white/10 bg-white/[0.07] px-4 py-3 text-white outline-none focus:border-white/20"
+                      className="w-full rounded-2xl border border-white/10 bg-white/[0.07] px-4 py-3 text-white outline-hidden focus:border-white/20"
                     />
                     <div className="mt-3 grid grid-cols-2 gap-3">
                       <button
@@ -575,7 +575,7 @@ export default function Market() {
                         type="button"
                         disabled={busy}
                         onClick={() => submitTrade(asset.symbol, 'sell')}
-                        className="rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/12 disabled:opacity-50"
+                        className="rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm font-semibold text-white transition  disabled:opacity-50"
                       >
                         Sell
                       </button>

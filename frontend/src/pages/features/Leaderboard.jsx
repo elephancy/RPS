@@ -103,7 +103,7 @@ export default function Leaderboard() {
               setLoading(true);
               setSortBy(e.target.value);
             }}
-                className="rounded-2xl border border-white/10 bg-black/35 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-200/50"
+                className="rounded-2xl border border-white/10 bg-black/35 px-4 py-3 text-sm text-white outline-hidden transition focus:border-cyan-200/50"
           >
             <option value="balance">Sort by Balance</option>
             <option value="wins">Sort by Wins</option>

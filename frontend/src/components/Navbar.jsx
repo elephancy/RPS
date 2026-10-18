@@ -135,7 +135,7 @@ export default function Navbar() {
 
           <button
             ref={toggleRef}
-            className="ml-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-3 py-2 text-sm text-white/90 transition hover:bg-white/12 md:hidden"
+            className="ml-auto inline-flex items-center gap-2 rounded-full border border-white/10  px-3 py-2 text-sm text-white/90 transition  md:hidden"
             onClick={() => setOpen(v => !v)}
             aria-label="Toggle menu"
             aria-expanded={open}
@@ -160,7 +160,7 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   [
                     'flex flex-col items-center justify-center rounded-2xl px-2 py-2 text-[11px] font-semibold transition',
-                    isActive ? 'bg-white/14 text-white' : 'text-white/60 hover:bg-white/8 hover:text-white',
+                    isActive ? ' text-white' : 'text-white/60  hover:text-white',
                   ].join(' ')
                 }
               >
@@ -171,7 +171,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setOpen(v => !v)}
-              className="flex flex-col items-center justify-center rounded-2xl px-2 py-2 text-[11px] font-semibold text-white/60 transition hover:bg-white/8 hover:text-white"
+              className="flex flex-col items-center justify-center rounded-2xl px-2 py-2 text-[11px] font-semibold text-white/60 transition  hover:text-white"
             >
               <Menu size={18} />
               <span className="mt-1">More</span>
@@ -181,7 +181,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-50 bg-black/35 px-3 pt-[calc(4.8rem+env(safe-area-inset-top))] backdrop-blur-sm md:hidden">
+        <div className="fixed inset-0 z-50 bg-black/35 px-3 pt-[calc(4.8rem+env(safe-area-inset-top))] backdrop-blur-xs md:hidden">
           <div
             id="mobile-drawer"
             ref={drawerRef}
@@ -197,7 +197,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="rounded-full border border-white/10 bg-white/8 p-2 text-white/70 transition hover:bg-white/12"
+                className="rounded-full border border-white/10  p-2 text-white/70 transition "
               >
                 <X size={16} />
               </button>
@@ -215,7 +215,7 @@ export default function Navbar() {
                   className={({ isActive }) =>
                     [
                       'flex items-center gap-3 rounded-2xl px-3 py-3 text-sm font-medium transition',
-                      isActive ? 'bg-white/14 text-white' : 'text-white/70 hover:bg-white/8 hover:text-white',
+                      isActive ? ' text-white' : 'text-white/70  hover:text-white',
                     ].join(' ')
                   }
                 >
@@ -251,7 +251,7 @@ function NavPill({ item }) {
       className={({ isActive }) =>
         [
           'flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium transition',
-          isActive ? 'bg-white/15 text-white shadow-lg shadow-black/10' : 'text-white/70 hover:bg-white/8 hover:text-white',
+          isActive ? 'bg-white/15 text-white shadow-lg shadow-black/10' : 'text-white/70  hover:text-white',
         ].join(' ')
       }
     >

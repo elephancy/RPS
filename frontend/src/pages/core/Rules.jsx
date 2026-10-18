@@ -55,7 +55,7 @@ export default function Rules() {
                 className="glass-card p-5"
                 whileHover={{ y: -2 }}
               >
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/8 text-cyan-100">
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10  text-cyan-100">
                   <rule.icon size={20} />
                 </div>
                 <h2 className="text-lg font-semibold">{rule.title}</h2>

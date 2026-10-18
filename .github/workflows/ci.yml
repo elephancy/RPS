@@ -49,8 +49,11 @@ jobs:
       - name: Build frontend
         run: npm --prefix frontend run build
 
+      - name: Test backend and patched mail transport
+        run: npm --prefix backend test
+
       - name: Load backend modules
         run: node -e "require('./backend/controllers/authController'); require('./backend/controllers/gameController'); require('./backend/controllers/economyController'); require('./backend/routes/auth'); require('./backend/routes/games'); require('./backend/routes/economy'); console.log('backend modules loaded')"
 
-      - name: Validate production release caller
+      - name: Validate private deployment boundary
         run: npm run test:deployment

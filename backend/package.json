@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node tests/match3.test.js",
+    "test": "node tests/match3.test.js && node --test tests/mailer.test.js",
     "start": "node index.js",
-    "dev": "nodemon index.js",
+    "dev": "node --watch index.js",
     "smoke:production": "node scripts/smokeProduction.js",
     "seed:content": "node scripts/seedContent.js",
     "seed:content:with-critters": "node scripts/seedContent.js --with-critters"
@@ -24,10 +24,7 @@
     "mongoose": "^9.7.2",
     "multer": "^2.2.0",
     "node-cron": "^4.5.0",
-    "nodemailer": "^9.0.1",
+    "nodemailer": "10.0.9",
     "uuid": "^14.0.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.9"
   }
 }

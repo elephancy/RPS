@@ -41,7 +41,7 @@ export function SectionHeader({ title, description, action, className = '' }) {
     <div className={`mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between ${className}`}>
       <div>
         <h2 className="text-2xl font-black tracking-tight">{title}</h2>
-        {description && <p className="mt-1 max-w-2xl text-sm leading-6 text-white/58">{description}</p>}
+        {description && <p className="mt-1 max-w-2xl text-sm leading-6 ">{description}</p>}
       </div>
       {action && <div className="flex flex-wrap gap-2">{action}</div>}
     </div>
@@ -73,10 +73,10 @@ export function RiskBadge({ value }) {
   const risk = Number(value || 0);
   const label = risk >= 0.75 ? 'High risk' : risk >= 0.45 ? 'Medium risk' : 'Low risk';
   const tone = risk >= 0.75
-    ? 'border-rose-300/25 bg-rose-400/12 text-rose-100'
+    ? 'border-rose-300/25  text-rose-100'
     : risk >= 0.45
-      ? 'border-amber-300/25 bg-amber-400/12 text-amber-100'
-      : 'border-emerald-300/25 bg-emerald-400/12 text-emerald-100';
+      ? 'border-amber-300/25  text-amber-100'
+      : 'border-emerald-300/25  text-emerald-100';
   return (
     <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${tone}`}>
       {label}

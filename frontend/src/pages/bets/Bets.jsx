@@ -110,7 +110,7 @@ export default function Bets() {
                 <input
                   type="number"
                   min="1"
-                  className="mt-5 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition focus:border-cyan-200/50"
+                  className="mt-5 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-hidden transition focus:border-cyan-200/50"
                   placeholder="Wager amount"
                   value={amount[bet._id] || ''}
                   onChange={(e) => setAmount(prev => ({ ...prev, [bet._id]: e.target.value }))}

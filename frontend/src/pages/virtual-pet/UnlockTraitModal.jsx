@@ -62,11 +62,11 @@ export default function UnlockTraitModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 grid place-items-center bg-slate-950/78 px-4 backdrop-blur-xl">
+    <div className="fixed inset-0 z-50 grid place-items-center  px-4 backdrop-blur-xl">
       <div className="max-h-[82vh] w-full max-w-2xl overflow-auto rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,.96),rgba(2,6,23,.96))] p-6 shadow-2xl">
         <div className="mb-5 flex items-start justify-between gap-4">
           <div>
-            <div className="text-xs uppercase tracking-[0.3em] text-white/38">Trait lab</div>
+            <div className="text-xs uppercase tracking-[0.3em] ">Trait lab</div>
             <h3 className="mt-2 text-2xl font-black">Unlock trait</h3>
           </div>
           <span className="rounded-full border border-white/10 bg-black/25 px-3 py-2 text-sm text-white/65">{shards} shards</span>
@@ -85,12 +85,12 @@ export default function UnlockTraitModal({
                     <div className={`capitalize font-medium ${rarityColors[rarity]}`}>
                       {trait} <span className="text-white/40">({rarity}, {cost} shards)</span>
                     </div>
-                    <p className="mt-1 text-xs leading-5 text-white/48">{info?.desc}</p>
+                    <p className="mt-1 text-xs leading-5 ">{info?.desc}</p>
                   </div>
                   <button
                     disabled={loading || shards < cost}
                     onClick={() => handleUnlock(trait)}
-                    className="rounded-2xl border border-cyan-200/20 bg-cyan-300/12 px-4 py-2 text-sm font-semibold text-cyan-50 transition hover:bg-cyan-300/20 disabled:opacity-45"
+                    className="rounded-2xl border border-cyan-200/20  px-4 py-2 text-sm font-semibold text-cyan-50 transition hover:bg-cyan-300/20 disabled:opacity-45"
                   >
                     Unlock
                   </button>

@@ -21,20 +21,20 @@ const filterOptions = [
 ];
 
 const typeStyles = {
-  betsPlaced:     'border-emerald-300/22 from-emerald-300/14',
-  betsWon:        'border-emerald-200/24 from-emerald-200/16',
-  storePurchases: 'border-amber-200/24 from-amber-300/14',
-  logins:         'border-cyan-200/24 from-cyan-300/14',
-  tasksCompleted: 'border-violet-200/24 from-violet-300/14',
-  minefieldWins:  'border-rose-200/24 from-rose-300/14',
-  puzzleSolves:   'border-indigo-200/24 from-indigo-300/14',
-  puzzleWins:     'border-indigo-200/24 from-indigo-300/14',
-  rpsWins:        'border-orange-200/24 from-orange-300/14',
-  clickFrenzyClicks: 'border-pink-200/24 from-pink-300/14',
-  frenzyClicks:   'border-pink-200/24 from-pink-300/14',
-  casinoWins:     'border-teal-200/24 from-teal-300/14',
-  itemsOwned:     'border-white/12 from-white/10',
-  other:          'border-white/12 from-white/10',
+  betsPlaced:     ' ',
+  betsWon:        ' ',
+  storePurchases: ' ',
+  logins:         ' ',
+  tasksCompleted: ' ',
+  minefieldWins:  ' ',
+  puzzleSolves:   ' ',
+  puzzleWins:     ' ',
+  rpsWins:        ' ',
+  clickFrenzyClicks: ' ',
+  frenzyClicks:   ' ',
+  casinoWins:     ' ',
+  itemsOwned:     ' from-white/10',
+  other:          ' from-white/10',
 };
 
 function AchievementIcon({ icon, title }) {
@@ -177,8 +177,8 @@ export default function Achievements() {
                       <h3 className="text-lg font-semibold">{ach.title}</h3>
                     </div>
 
-                    <p className="mt-3 min-h-10 text-sm leading-5 text-white/64">{ach.description}</p>
-                    <div className="mt-4 flex items-center justify-between text-xs uppercase tracking-[0.16em] text-white/42">
+                    <p className="mt-3 min-h-10 text-sm leading-5 ">{ach.description}</p>
+                    <div className="mt-4 flex items-center justify-between text-xs uppercase tracking-[0.16em] ">
                       <span>Goal: {ach.threshold}</span>
                       <span>{Number(ach.reward || 0).toLocaleString()} coins</span>
                     </div>
@@ -224,9 +224,9 @@ export default function Achievements() {
                       <h3 className="text-lg font-semibold">{ach.title}</h3>
                     </div>
 
-                    <p className="mt-3 min-h-10 text-sm leading-5 text-white/48">{ach.description}</p>
+                    <p className="mt-3 min-h-10 text-sm leading-5 ">{ach.description}</p>
 
-                    <div className="mt-4 flex items-center justify-between text-xs uppercase tracking-[0.16em] text-white/36">
+                    <div className="mt-4 flex items-center justify-between text-xs uppercase tracking-[0.16em] ">
                       <span>Goal: {ach.threshold}</span>
                       <span>{Number(ach.reward || 0).toLocaleString()} coins</span>
                     </div>

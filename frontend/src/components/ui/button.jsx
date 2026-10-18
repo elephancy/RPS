@@ -2,9 +2,9 @@ import React from "react";
 
 const variants = {
   primary: "text-white bg-gradient-to-r from-pink-500 via-fuchsia-500 to-violet-500 shadow-lg shadow-pink-500/20",
-  secondary: "text-white bg-white/8 border border-white/10 hover:bg-white/12",
-  outline: "text-white bg-transparent border border-white/16 hover:bg-white/8",
-  ghost: "text-white bg-transparent hover:bg-white/8",
+  secondary: "text-white  border border-white/10 ",
+  outline: "text-white bg-transparent border  ",
+  ghost: "text-white bg-transparent ",
 };
 
 const sizes = {

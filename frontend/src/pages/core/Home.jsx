@@ -87,7 +87,7 @@ export default function Home() {
           <div className="mt-5 overflow-hidden rounded-[28px] border border-white/10 bg-black/25 p-4">
             <div className="mb-4 text-xs uppercase tracking-[0.28em] text-white/40">Suggested path</div>
             {['Play a round', 'Spend or invest coins', 'Claim progress', 'Upgrade collection'].map((step, index) => (
-              <div key={step} className="flex items-center gap-3 border-t border-white/8 py-3 first:border-t-0">
+              <div key={step} className="flex items-center gap-3 border-t  py-3 first:border-t-0">
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-sm font-black">{index + 1}</div>
                 <div className="font-semibold">{step}</div>
               </div>
@@ -117,7 +117,7 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <Link to={route.path} className="block">
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/8 text-pink-300">
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10  text-pink-300">
                   <Icon size={20} />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{route.label}</h3>
