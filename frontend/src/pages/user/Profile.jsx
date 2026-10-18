@@ -265,7 +265,7 @@ export default function Profile() {
                   }
                 }}
                 placeholder="Or paste an image/GIF URL"
-                className="w-full rounded-2xl border border-white/10 bg-black/25 px-4 py-3 text-white outline-none transition focus:border-blue-400"
+                className="w-full rounded-2xl border border-white/10 bg-black/25 px-4 py-3 text-white outline-hidden transition focus:border-blue-400"
               />
 
               <input
@@ -273,7 +273,7 @@ export default function Profile() {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Username"
-                className="w-full rounded-2xl border border-white/10 bg-black/25 px-4 py-3 text-white outline-none transition focus:border-blue-400"
+                className="w-full rounded-2xl border border-white/10 bg-black/25 px-4 py-3 text-white outline-hidden transition focus:border-blue-400"
               />
 
               <div className="relative">
@@ -283,7 +283,7 @@ export default function Profile() {
                   onChange={(e) => setCurrentPassword(e.target.value)}
                   placeholder="Current password"
                   autoComplete="current-password"
-                  className="mb-3 w-full rounded-2xl border border-white/10 bg-black/25 px-4 py-3 text-white outline-none transition focus:border-blue-400"
+                  className="mb-3 w-full rounded-2xl border border-white/10 bg-black/25 px-4 py-3 text-white outline-hidden transition focus:border-blue-400"
                 />
                 <input
                   type={passwordVisible ? 'text' : 'password'}
@@ -295,7 +295,7 @@ export default function Profile() {
                   }}
                   placeholder="New password"
                   autoComplete="new-password"
-                  className="w-full rounded-2xl border border-white/10 bg-black/25 px-4 py-3 pr-12 text-white outline-none transition focus:border-blue-400"
+                  className="w-full rounded-2xl border border-white/10 bg-black/25 px-4 py-3 pr-12 text-white outline-hidden transition focus:border-blue-400"
                 />
                 <button
                   type="button"
@@ -341,13 +341,13 @@ export default function Profile() {
               value={deletePassword}
               onChange={(e) => setDeletePassword(e.target.value)}
               placeholder="Current password"
-              className="rounded-2xl border border-red-300/20 bg-black/25 px-4 py-3 text-white outline-none focus:border-red-300"
+              className="rounded-2xl border border-red-300/20 bg-black/25 px-4 py-3 text-white outline-hidden focus:border-red-300"
             />
             <input
               value={deleteConfirm}
               onChange={(e) => setDeleteConfirm(e.target.value)}
               placeholder={`Type ${user?.username || 'your username'} to confirm`}
-              className="rounded-2xl border border-red-300/20 bg-black/25 px-4 py-3 text-white outline-none focus:border-red-300"
+              className="rounded-2xl border border-red-300/20 bg-black/25 px-4 py-3 text-white outline-hidden focus:border-red-300"
             />
             <Button
               type="submit"

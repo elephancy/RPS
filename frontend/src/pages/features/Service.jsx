@@ -228,8 +228,8 @@ export default function Services() {
             key={key}
             className={`rounded-full border px-5 py-2 text-sm font-semibold transition-all ${
               tab === key
-                ? 'border-emerald-300/30 bg-emerald-300/14 text-emerald-50 shadow-lg'
-                : 'border-white/10 bg-black/20 text-white/62 hover:bg-white/10 hover:text-white'
+                ? 'border-emerald-300/30  text-emerald-50 shadow-lg'
+                : 'border-white/10 bg-black/20  hover:bg-white/10 hover:text-white'
             }`}
             onClick={() => {
               setTab(key);
@@ -253,14 +253,14 @@ export default function Services() {
             placeholder="Service Title"
             value={form.title}
             onChange={e => setForm({ ...form, title: e.target.value })}
-            className="input px-4 py-3 outline-none"
+            className="input px-4 py-3 outline-hidden"
             required
           />
           <textarea
             placeholder="Service Description"
             value={form.description}
             onChange={e => setForm({ ...form, description: e.target.value })}
-            className="input h-32 px-4 py-3 outline-none"
+            className="input h-32 px-4 py-3 outline-hidden"
             required
           />
           <input
@@ -268,7 +268,7 @@ export default function Services() {
             placeholder="Price"
             value={form.price}
             onChange={e => setForm({ ...form, price: e.target.value })}
-            className="input px-4 py-3 outline-none"
+            className="input px-4 py-3 outline-hidden"
             required
           />
           <div className="flex justify-center gap-4">

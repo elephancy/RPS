@@ -16,12 +16,12 @@ export default function NotFound() {
         </div>
         <div className="text-xs uppercase tracking-[0.34em] text-white/40">404</div>
         <h1 className="mt-3 text-4xl font-black sm:text-6xl">Page not found</h1>
-        <p className="mx-auto mt-4 max-w-lg text-white/62">
+        <p className="mx-auto mt-4 max-w-lg ">
           This route does not exist or has moved. Return home and continue from the main navigation.
         </p>
         <Link
           to="/"
-          className="mt-7 inline-flex items-center justify-center gap-2 rounded-2xl border border-cyan-200/20 bg-cyan-300/12 px-5 py-3 font-semibold text-cyan-50 transition hover:bg-cyan-300/20"
+          className="mt-7 inline-flex items-center justify-center gap-2 rounded-2xl border border-cyan-200/20  px-5 py-3 font-semibold text-cyan-50 transition hover:bg-cyan-300/20"
         >
           <ArrowLeft className="h-4 w-4" />
           Back home

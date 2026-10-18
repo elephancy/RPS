@@ -68,7 +68,7 @@ export default function AuthForm({ isLogin }) {
           <h1 className="max-w-3xl text-4xl font-black tracking-tight sm:text-6xl">
             {isLogin ? 'Welcome back to the floor.' : 'Create your RPS account.'}
           </h1>
-          <p className="mt-4 max-w-2xl text-lg leading-8 text-white/62">
+          <p className="mt-4 max-w-2xl text-lg leading-8 ">
             {isLogin
               ? 'Sign in to manage your bets, market positions, critters, inventory, and progression.'
               : 'Start with a verified account, then build your economy through games, trades, and collections.'}
@@ -131,7 +131,7 @@ export default function AuthForm({ isLogin }) {
 
           <button
             disabled={loading}
-            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-cyan-200/20 bg-cyan-300/12 px-5 py-3 font-bold text-cyan-50 transition hover:bg-cyan-300/20 disabled:opacity-60"
+            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-cyan-200/20  px-5 py-3 font-bold text-cyan-50 transition hover:bg-cyan-300/20 disabled:opacity-60"
           >
             {loading ? 'Working...' : isLogin ? 'Sign in' : 'Create account'}
             <ArrowRight className="h-4 w-4" />
@@ -162,14 +162,14 @@ function InputField({ label, type, value, onChange }) {
   const Icon = fieldIcon[label] || UserRound;
   return (
     <label className="block">
-      <span className="mb-2 block text-sm font-semibold text-white/72">{label}</span>
+      <span className="mb-2 block text-sm font-semibold ">{label}</span>
       <span className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/25 px-4 py-3 transition focus-within:border-cyan-200/45">
-        <Icon className="h-4 w-4 text-white/38" />
+        <Icon className="h-4 w-4 " />
         <input
           type={type}
           value={value}
           onChange={onChange}
-          className="min-w-0 flex-1 bg-transparent text-white outline-none placeholder:text-white/30"
+          className="min-w-0 flex-1 bg-transparent text-white outline-hidden placeholder:text-white/30"
           required
         />
       </span>

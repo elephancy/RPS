@@ -99,7 +99,7 @@ export default function VerifyEmail() {
             <button
               type="button"
               onClick={() => navigate('/onboarding', { replace: true })}
-              className="w-full rounded-2xl border border-emerald-200/20 bg-emerald-300/12 px-4 py-3 font-semibold text-emerald-50 transition hover:bg-emerald-300/20"
+              className="w-full rounded-2xl border border-emerald-200/20  px-4 py-3 font-semibold text-emerald-50 transition hover:bg-emerald-300/20"
             >
               Not redirecting? Click here.
             </button>
@@ -111,8 +111,8 @@ export default function VerifyEmail() {
           Use the 6-digit code from Brevo or click the verification link in your email.
         </p>
 
-        {error && <div className="mb-4 rounded bg-red-500/20 p-3 text-sm text-red-100">{error}</div>}
-        {message && <div className="mb-4 rounded bg-emerald-500/20 p-3 text-sm text-emerald-100">{message}</div>}
+        {error && <div className="mb-4 rounded-sm bg-red-500/20 p-3 text-sm text-red-100">{error}</div>}
+        {message && <div className="mb-4 rounded-sm bg-emerald-500/20 p-3 text-sm text-emerald-100">{message}</div>}
 
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
@@ -121,7 +121,7 @@ export default function VerifyEmail() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition focus:border-cyan-200/45"
+            className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-hidden transition focus:border-cyan-200/45"
               required
             />
           </div>
@@ -131,7 +131,7 @@ export default function VerifyEmail() {
               type="text"
               value={code}
               onChange={(e) => setCode(e.target.value)}
-              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition focus:border-cyan-200/45"
+              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-hidden transition focus:border-cyan-200/45"
               placeholder="123456"
               autoComplete="one-time-code"
               inputMode="numeric"
@@ -140,7 +140,7 @@ export default function VerifyEmail() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-2xl border border-cyan-200/20 bg-cyan-300/12 px-4 py-3 font-semibold text-cyan-50 transition hover:bg-cyan-300/20 disabled:opacity-60"
+            className="w-full rounded-2xl border border-cyan-200/20  px-4 py-3 font-semibold text-cyan-50 transition hover:bg-cyan-300/20 disabled:opacity-60"
           >
             {loading ? 'Verifying…' : 'Verify'}
           </button>

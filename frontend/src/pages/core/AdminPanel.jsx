@@ -424,7 +424,7 @@ export default function AdminPanel() {
               key={id}
               type="button"
               onClick={() => setActiveTab(id)}
-              className={`rounded-2xl px-3 py-2 text-sm font-semibold transition ${activeTab === id ? 'bg-white/15 text-white shadow-lg shadow-black/10' : 'text-white/55 hover:bg-white/8 hover:text-white'}`}
+              className={`rounded-2xl px-3 py-2 text-sm font-semibold transition ${activeTab === id ? 'bg-white/15 text-white shadow-lg shadow-black/10' : 'text-white/55  hover:text-white'}`}
             >
               {label}
             </button>
@@ -475,10 +475,10 @@ export default function AdminPanel() {
 
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {Object.entries(health?.checks || {}).map(([key, check]) => (
-              <div key={key} className={`rounded-[24px] border p-4 ${check.ok ? 'border-emerald-300/20 bg-emerald-300/8' : 'border-amber-300/20 bg-amber-300/8'}`}>
+              <div key={key} className={`rounded-[24px] border p-4 ${check.ok ? 'border-emerald-300/20 ' : 'border-amber-300/20 '}`}>
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <div className="text-xs uppercase tracking-[0.24em] text-white/42">{key.replace(/([A-Z])/g, ' $1')}</div>
+                    <div className="text-xs uppercase tracking-[0.24em] ">{key.replace(/([A-Z])/g, ' $1')}</div>
                     <div className="mt-1 text-lg font-black capitalize">{check.status?.replace('_', ' ') || (check.ok ? 'Healthy' : 'Needs attention')}</div>
                   </div>
                   {check.ok ? <CheckCircle2 className="h-5 w-5 text-emerald-200" /> : <AlertTriangle className="h-5 w-5 text-amber-200" />}
@@ -487,8 +487,8 @@ export default function AdminPanel() {
                   {Object.entries(check)
                     .filter(([field]) => !['ok', 'status'].includes(field))
                     .map(([field, value]) => (
-                      <div key={field} className="flex justify-between gap-3 border-t border-white/8 pt-1">
-                        <span className="capitalize text-white/38">{field.replace(/([A-Z])/g, ' $1')}</span>
+                      <div key={field} className="flex justify-between gap-3 border-t  pt-1">
+                        <span className="capitalize ">{field.replace(/([A-Z])/g, ' $1')}</span>
                         <span className="max-w-[60%] truncate text-right">{String(value)}</span>
                       </div>
                     ))}
@@ -503,7 +503,7 @@ export default function AdminPanel() {
         <section className="rounded-[28px] border border-white/10 bg-white/[0.05] p-6 backdrop-blur-xl">
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-xl font-semibold text-purple-300">Bet requests</h2>
-            <button onClick={fetchRequests} className="rounded bg-white/10 px-3 py-1 text-sm hover:bg-white/20">Refresh</button>
+            <button onClick={fetchRequests} className="rounded-sm bg-white/10 px-3 py-1 text-sm hover:bg-white/20">Refresh</button>
           </div>
           <div className="overflow-x-auto">
             <table>
@@ -538,7 +538,7 @@ export default function AdminPanel() {
               {['title','market','desiredOdds','stake','adminNotes'].map((k) => (
                 <div key={k}>
                   <label className="block text-sm mb-1 capitalize">{k}</label>
-                  <input className="w-full px-3 py-2 rounded bg-white/10 text-white"
+                  <input className="w-full px-3 py-2 rounded-sm bg-white/10 text-white"
                     value={editReq[k] || ''} onChange={(e) => setEditReq({ ...editReq, [k]: e.target.value })} />
                 </div>
               ))}
@@ -558,10 +558,10 @@ export default function AdminPanel() {
               <div
                 key={u.username}
                 onClick={() => { setSelUser(u); setAddFunds(''); }}
-                className={`cursor-pointer rounded-[22px] border p-4 transition ${selUser?.username === u.username ? 'border-cyan-200/35 bg-cyan-300/16 shadow-lg shadow-cyan-950/20' : 'border-white/10 bg-white/[0.045] hover:bg-white/[0.075]'}`}
+                className={`cursor-pointer rounded-[22px] border p-4 transition ${selUser?.username === u.username ? 'border-cyan-200/35  shadow-lg shadow-cyan-950/20' : 'border-white/10 bg-white/[0.045] hover:bg-white/[0.075]'}`}
               >
                 <div className="font-medium">{u.username}</div>
-                <div className="text-sm text-white/62">${u.balance.toLocaleString()}</div>
+                <div className="text-sm ">${u.balance.toLocaleString()}</div>
                 <div className="text-xs uppercase tracking-[0.2em] text-white/40">{u.role || 'user'}</div>
                 {u.status === 'banned' && (<div className="text-xs text-red-400">BANNED</div>)}
               </div>
@@ -591,7 +591,7 @@ export default function AdminPanel() {
               )}
               <div className="flex gap-2 items-center">
                 <AdminInput label="Add Funds" type="number" value={addFunds} onChange={e => setAddFunds(e.target.value)} />
-                <button onClick={handleAddFunds} className="bg-green-600 hover:bg-green-700 px-4 py-1 rounded">+${addFunds || '0'}</button>
+                <button onClick={handleAddFunds} className="bg-green-600 hover:bg-green-700 px-4 py-1 rounded-sm">+${addFunds || '0'}</button>
               </div>
               <button onClick={handleBan} className="rounded-2xl border border-rose-300/20 bg-rose-400/10 px-4 py-2 text-sm font-semibold text-rose-100 transition hover:bg-rose-400/20">Ban user</button>
             </div>
@@ -607,7 +607,7 @@ export default function AdminPanel() {
               <div key={bet.title}>
                 <button
                   onClick={() => setSelBet(selBet?.title === bet.title ? null : bet)}
-                  className="w-full text-left p-2 bg-white/5 hover:bg-white/10 rounded flex justify-between items-center"
+                  className="w-full text-left p-2 bg-white/5 hover:bg-white/10 rounded-sm flex justify-between items-center"
                 >
                   <span>{bet.title}</span>
                   {selBet?.title === bet.title ? <ChevronUp /> : <ChevronDown />}
@@ -631,13 +631,13 @@ export default function AdminPanel() {
                           />
                           <button
                             onClick={() => updateOdds(bet.title, opt._id, optionOdds[opt._id] ?? opt.odds)}
-                            className="bg-yellow-500 hover:bg-yellow-600 px-3 py-1 rounded"
+                            className="bg-yellow-500 hover:bg-yellow-600 px-3 py-1 rounded-sm"
                           >
                             Update
                           </button>
                           <button
                             onClick={() => finalizeOption(bet._id, opt._id)}
-                            className="bg-purple-600 hover:bg-purple-700 px-3 py-1 rounded"
+                            className="bg-purple-600 hover:bg-purple-700 px-3 py-1 rounded-sm"
                           >
                             Finalize
                           </button>
@@ -659,9 +659,9 @@ export default function AdminPanel() {
             <label className="text-sm font-medium text-white">Options</label>
             {betOptions.map((o, i) => (
               <div key={i} className="grid grid-cols-2 gap-2">
-                <input className="px-3 py-2 rounded bg-white/10 text-white" placeholder="Text" value={o.text}
+                <input className="px-3 py-2 rounded-sm bg-white/10 text-white" placeholder="Text" value={o.text}
                   onChange={e => { const a = [...betOptions]; a[i].text = e.target.value; setBetOptions(a); }} />
-                <input className="px-3 py-2 rounded bg-white/10 text-white" placeholder="Odds" type="number" value={o.odds}
+                <input className="px-3 py-2 rounded-sm bg-white/10 text-white" placeholder="Odds" type="number" value={o.odds}
                   onChange={e => { const a = [...betOptions]; a[i].odds = e.target.value; setBetOptions(a); }} />
               </div>
             ))}
@@ -747,8 +747,8 @@ export default function AdminPanel() {
                     <div className={`w-2 h-2 rounded-full ${log.action.includes('Update') ? 'bg-green-500' : log.action.includes('Create') ? 'bg-blue-500' : 'bg-pink-500'}`} />
                     <div>
                       <span className="font-semibold text-pink-300">{log.action}</span>
-                      <p className="mt-1 text-sm text-white/68">{log.details}</p>
-                      <span className="mt-1 block text-xs text-white/42">Admin: {log.admin} • Target: {log.target}</span>
+                      <p className="mt-1 text-sm ">{log.details}</p>
+                      <span className="mt-1 block text-xs ">Admin: {log.admin} • Target: {log.target}</span>
                     </div>
                   </div>
                 </div>
@@ -804,7 +804,7 @@ function AdminSelect({ label, value, onChange, options, placeholder }) {
         <select
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full appearance-none rounded-2xl border border-white/10 bg-black/30 px-4 py-3 pr-10 text-white outline-none transition focus:border-white/30 [&>option]:bg-slate-950 [&>option]:text-white"
+          className="w-full appearance-none rounded-2xl border border-white/10 bg-black/30 px-4 py-3 pr-10 text-white outline-hidden transition focus:border-white/30 [&>option]:bg-slate-950 [&>option]:text-white"
         >
           <option value="">{placeholder}</option>
           {options.map(([optionValue, optionLabel]) => (

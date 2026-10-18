@@ -91,7 +91,7 @@ export default function PetShopPage() {
             key={t}
             onClick={() => setTab(t)}
             className={`rounded-full border px-4 py-2 text-sm font-semibold capitalize transition ${
-              tab === t ? 'border-emerald-300/30 bg-emerald-300/14 text-emerald-50' : 'border-white/10 bg-black/20 text-white/60 hover:bg-white/10 hover:text-white'
+              tab === t ? 'border-emerald-300/30  text-emerald-50' : 'border-white/10 bg-black/20 text-white/60 hover:bg-white/10 hover:text-white'
             }`}
           >
             {t.charAt(0).toUpperCase()+t.slice(1)}

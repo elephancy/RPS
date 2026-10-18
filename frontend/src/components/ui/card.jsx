@@ -52,7 +52,7 @@ function OverlaySubmit({ onSubmit, submitting }) {
     onSubmit && onSubmit()
   }
   return (
-    <div className="absolute inset-0 bg-black/55 backdrop-blur-sm flex items-center justify-center rounded-[1.75rem]">
+    <div className="absolute inset-0 bg-black/55 backdrop-blur-xs flex items-center justify-center rounded-[1.75rem]">
       <Button size="lg" onClick={handleClick} disabled={clicked || submitting}>
         {clicked || submitting ? 'Submitting…' : 'Submit Answer'}
       </Button>

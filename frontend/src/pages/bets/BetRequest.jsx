@@ -49,20 +49,20 @@ export default function BetRequest() {
         <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr]">
         <form onSubmit={submit} className="grid gap-4 rounded-[32px] border border-white/10 bg-white/[0.05] p-5 shadow-2xl backdrop-blur-xl">
           <SectionHeader title="New request" description="Describe the market, preferred odds style, and optional stake." />
-          <label className="text-sm text-white/70">Title<input className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition focus:border-cyan-200/50" name="title" value={form.title} onChange={onChange} required /></label>
-          <label className="text-sm text-white/70">Market<input className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition focus:border-cyan-200/50" name="market" value={form.market} onChange={onChange} /></label>
+          <label className="text-sm text-white/70">Title<input className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-hidden transition focus:border-cyan-200/50" name="title" value={form.title} onChange={onChange} required /></label>
+          <label className="text-sm text-white/70">Market<input className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-hidden transition focus:border-cyan-200/50" name="market" value={form.market} onChange={onChange} /></label>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             <label className="text-sm text-white/70">Odds format
-              <select className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition focus:border-cyan-200/50" name="oddsFormat" value={form.oddsFormat} onChange={onChange}>
+              <select className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-hidden transition focus:border-cyan-200/50" name="oddsFormat" value={form.oddsFormat} onChange={onChange}>
                 <option value="decimal">Decimal</option>
                 <option value="american">American</option>
                 <option value="fractional">Fractional</option>
               </select>
             </label>
-            <label className="text-sm text-white/70">Desired odds<input className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition focus:border-cyan-200/50" name="desiredOdds" value={form.desiredOdds} onChange={onChange} placeholder="1.85 / +120" /></label>
-            <label className="text-sm text-white/70">Stake<input className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition focus:border-cyan-200/50" name="stake" value={form.stake} onChange={onChange} placeholder="100" /></label>
+            <label className="text-sm text-white/70">Desired odds<input className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-hidden transition focus:border-cyan-200/50" name="desiredOdds" value={form.desiredOdds} onChange={onChange} placeholder="1.85 / +120" /></label>
+            <label className="text-sm text-white/70">Stake<input className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-hidden transition focus:border-cyan-200/50" name="stake" value={form.stake} onChange={onChange} placeholder="100" /></label>
           </div>
-          <label className="text-sm text-white/70">Notes<textarea className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition focus:border-cyan-200/50" rows="4" name="notes" value={form.notes} onChange={onChange} /></label>
+          <label className="text-sm text-white/70">Notes<textarea className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-hidden transition focus:border-cyan-200/50" rows="4" name="notes" value={form.notes} onChange={onChange} /></label>
           <ActionButton variant="cyan" type="submit" className="justify-center">Submit request</ActionButton>
         </form>
 

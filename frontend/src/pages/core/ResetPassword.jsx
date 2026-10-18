@@ -54,7 +54,7 @@ export default function ResetPassword() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition focus:border-blue-300"
+          className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-hidden transition focus:border-blue-300"
         />
         {!token && (
           <>
@@ -65,7 +65,7 @@ export default function ResetPassword() {
               inputMode="numeric"
               autoComplete="one-time-code"
               placeholder="123456"
-              className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition focus:border-blue-300"
+              className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-hidden transition focus:border-blue-300"
             />
           </>
         )}
@@ -76,9 +76,9 @@ export default function ResetPassword() {
           minLength={8}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition focus:border-blue-300"
+          className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-hidden transition focus:border-blue-300"
         />
-        <button disabled={loading} className="mt-5 w-full rounded-2xl border border-emerald-200/20 bg-emerald-300/12 px-4 py-3 font-bold text-emerald-50 transition hover:bg-emerald-300/20 disabled:opacity-60">
+        <button disabled={loading} className="mt-5 w-full rounded-2xl border border-emerald-200/20  px-4 py-3 font-bold text-emerald-50 transition hover:bg-emerald-300/20 disabled:opacity-60">
           {loading ? 'Updating...' : 'Reset and sign in'}
         </button>
         <Link to="/forgot-password" className="mt-4 block text-center text-sm text-white/55 hover:text-white">

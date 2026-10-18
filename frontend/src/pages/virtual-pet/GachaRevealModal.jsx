@@ -23,7 +23,7 @@ function ResultCard({ item, compact = false }) {
       animate={{ opacity: 1, y: 0, scale: 1 }}
       className={`relative overflow-hidden rounded-[28px] bg-gradient-to-br ${tone} p-[1px] shadow-2xl`}
     >
-      <div className="relative rounded-[27px] bg-slate-950/88 p-4">
+      <div className="relative rounded-[27px]  p-4">
         <div className="absolute inset-0 opacity-35 mix-blend-screen bg-[radial-gradient(circle_at_30%_15%,white,transparent_24%),linear-gradient(115deg,transparent_20%,rgba(255,255,255,.26),transparent_45%)]" />
         <div className="relative">
           <div className="flex items-center justify-between gap-3">
@@ -46,7 +46,7 @@ function ResultCard({ item, compact = false }) {
           {item.variant && <div className="mt-1 text-sm text-white/45">{item.variant}</div>}
           <div className="mt-3 flex flex-wrap gap-2">
             {Object.entries(item.traits || {}).slice(0, compact ? 2 : 4).map(([key, value]) => (
-              <span key={key} className="rounded-full border border-white/10 bg-white/[0.06] px-2.5 py-1 text-xs text-white/58">
+              <span key={key} className="rounded-full border border-white/10 bg-white/[0.06] px-2.5 py-1 text-xs ">
                 {key}: {value}
               </span>
             ))}
@@ -94,11 +94,11 @@ export default function GachaRevealModal({ pack = 'Pack', items, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-slate-950/82 px-4 py-8 backdrop-blur-xl">
+    <div className="fixed inset-0 z-50 grid place-items-center overflow-y-auto  px-4 py-8 backdrop-blur-xl">
       <div className="relative w-full max-w-5xl overflow-hidden rounded-[36px] border border-white/10 bg-[radial-gradient(circle_at_50%_0%,rgba(244,114,182,0.18),transparent_34%),linear-gradient(180deg,rgba(15,23,42,.96),rgba(2,6,23,.96))] p-5 shadow-2xl sm:p-7">
         <button
           type="button"
-          className="absolute right-4 top-4 z-10 rounded-full border border-white/10 bg-white/[0.06] p-2 text-white/70 transition hover:bg-white/12 hover:text-white"
+          className="absolute right-4 top-4 z-10 rounded-full border border-white/10 bg-white/[0.06] p-2 text-white/70 transition  hover:text-white"
           onClick={onClose}
           aria-label="Close reveal"
         >
@@ -116,7 +116,7 @@ export default function GachaRevealModal({ pack = 'Pack', items, onClose }) {
               <motion.div
                 animate={{ rotateY: [0, 18, -18, 0], scale: [1, 1.04, 1] }}
                 transition={{ repeat: Infinity, duration: 1.4 }}
-                className="grid h-72 w-52 place-items-center rounded-[32px] border border-white/15 bg-gradient-to-br from-white/16 to-white/5 shadow-[0_0_80px_rgba(244,114,182,.22)]"
+                className="grid h-72 w-52 place-items-center rounded-[32px] border border-white/15 bg-gradient-to-br  to-white/5 shadow-[0_0_80px_rgba(244,114,182,.22)]"
               >
                 <div className="h-28 w-28 rounded-full border border-white/20 bg-white/10" />
               </motion.div>
@@ -125,7 +125,7 @@ export default function GachaRevealModal({ pack = 'Pack', items, onClose }) {
             )}
             <button
               type="button"
-              className="mt-6 rounded-2xl border border-white/10 bg-white/[0.06] px-5 py-3 text-sm font-semibold text-white/72 transition hover:bg-white/10"
+              className="mt-6 rounded-2xl border border-white/10 bg-white/[0.06] px-5 py-3 text-sm font-semibold  transition hover:bg-white/10"
               onClick={handleSkip}
             >
               Show all results

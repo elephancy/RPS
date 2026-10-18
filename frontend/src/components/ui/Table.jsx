@@ -20,5 +20,5 @@ export function TR({ children, className = '' }) {
   return <tr className={`transition hover:bg-white/[0.055] ${className}`}>{children}</tr>;
 }
 export function TD({ children, className = '' }) {
-  return <td className={`border-b border-white/[0.06] px-4 py-3 text-sm text-white/86 ${className}`}>{children}</td>;
+  return <td className={`border-b border-white/[0.06] px-4 py-3 text-sm  ${className}`}>{children}</td>;
 }

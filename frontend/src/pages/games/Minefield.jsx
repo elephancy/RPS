@@ -257,7 +257,7 @@ export default function Minefield() {
         <div className="flex flex-col gap-3">
           <div className="flex gap-2">
             <input
-              className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none focus:border-cyan-200/35"
+              className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-hidden focus:border-cyan-200/35"
               placeholder="Save current as preset name"
               value={presetName}
               onChange={(e) => setPresetName(e.target.value)}
@@ -290,14 +290,14 @@ export default function Minefield() {
                   `}
                 >
                   <button
-                    className="px-1.5 py-0.5 rounded hover:bg-white/10"
+                    className="px-1.5 py-0.5 rounded-sm hover:bg-white/10"
                     onClick={() => applyPreset(p)}
                     title={`${p.rows}×${p.cols}, ${p.mines} mines`}
                   >
                     {p.name} <span className="text-white/50">({p.rows}×{p.cols}, {p.mines})</span>
                   </button>
                   <button
-                    className="ml-1 p-1 rounded hover:bg-white/10 text-white/70"
+                    className="ml-1 p-1 rounded-sm hover:bg-white/10 text-white/70"
                     onClick={() => deletePreset(p.name)}
                     aria-label={`Delete ${p.name}`}
                   >
@@ -315,17 +315,17 @@ export default function Minefield() {
         <span className="bg-yellow-600/20 text-yellow-300 px-3 py-1 rounded-full border border-yellow-600/30">Reward x{buffMultiplier.toFixed(1)}</span>
         <span className="bg-green-600/20 text-green-300 px-3 py-1 rounded-full border border-green-600/30">Safe Clicks: {extraSafeClicks}</span>
         {mineReduction > 0 && (
-          <span className="rounded-full border border-rose-300/25 bg-rose-400/12 px-3 py-1 text-rose-200">-{mineReduction} Mines</span>
+          <span className="rounded-full border border-rose-300/25  px-3 py-1 text-rose-200">-{mineReduction} Mines</span>
         )}
       </div>
       <section className="mb-5 rounded-[32px] border border-white/10 bg-white/[0.05] p-5 shadow-xl backdrop-blur-xl">
       <div className="mb-4 grid gap-3 sm:grid-cols-[1fr_auto_auto] sm:items-end">
         <label htmlFor="betInput" className="block">
-          <span className="mb-2 block text-xs uppercase tracking-[0.26em] text-white/42">Stake</span>
+          <span className="mb-2 block text-xs uppercase tracking-[0.26em] ">Stake</span>
         <input
           id="betInput" type="number" min="1" value={draftBet}
           onChange={e => setDraftBet(+e.target.value)}
-          className="input px-4 py-3 text-white outline-none"
+          className="input px-4 py-3 text-white outline-hidden"
         />
         </label>
         <ActionButton onClick={() => setDraftBet(user?.balance ?? 0)}>Max</ActionButton>
@@ -338,7 +338,7 @@ export default function Minefield() {
           Enter
         </ActionButton>
       </div>
-      <div className="mb-4 rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white/72">
+      <div className="mb-4 rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm ">
         {!sessionId
           ? 'Set a stake and enter the field.'
           : gameOver

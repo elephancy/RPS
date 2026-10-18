@@ -41,9 +41,9 @@ function SlotSymbol({ value }) {
   const [code, label, tone] = SLOT_SYMBOL_META[value] || [String(value || '?').slice(0, 2).toUpperCase(), 'Symbol', 'from-cyan-200 to-slate-900'];
   return (
     <div className={`grid h-full w-full place-items-center rounded-[26px] bg-gradient-to-br ${tone} p-[1px]`}>
-      <div className="flex h-full w-full flex-col items-center justify-center rounded-[25px] bg-slate-950/58">
+      <div className="flex h-full w-full flex-col items-center justify-center rounded-[25px] ">
         <span className="text-2xl font-black tracking-tight text-white sm:text-3xl">{code}</span>
-        <span className="mt-1 text-[10px] uppercase tracking-[0.18em] text-white/48">{label}</span>
+        <span className="mt-1 text-[10px] uppercase tracking-[0.18em] ">{label}</span>
       </div>
     </div>
   );
@@ -69,7 +69,7 @@ export default function Casino() {
             onClick={() => setGame(entry.id)}
             className={`group rounded-[26px] border p-4 text-left transition duration-300 hover:-translate-y-1 ${
               game === entry.id
-                ? 'border-amber-200/35 bg-amber-300/12 shadow-[0_24px_80px_rgba(245,158,11,0.18)]'
+                ? 'border-amber-200/35  shadow-[0_24px_80px_rgba(245,158,11,0.18)]'
                 : 'border-white/10 bg-white/[0.055] hover:bg-white/[0.08]'
             }`}
           >
@@ -77,7 +77,7 @@ export default function Casino() {
               <span className="text-lg font-black">{entry.label}</span>
               <span className={`h-2 w-8 rounded-full transition ${game === entry.id ? 'bg-amber-200' : 'bg-white/15 group-hover:bg-white/35'}`} />
             </div>
-            <p className="mt-2 text-sm leading-5 text-white/58">{entry.desc}</p>
+            <p className="mt-2 text-sm leading-5 ">{entry.desc}</p>
           </button>
         ))}
       </nav>
@@ -112,7 +112,7 @@ function BetControls({
   limitLabel = 'Rounds',
 }) {
   return (
-    <div className="rounded-[28px] border border-white/10 bg-black/24 p-4">
+    <div className="rounded-[28px] border border-white/10  p-4">
       <div className="grid gap-3 lg:grid-cols-[1fr_auto] lg:items-end">
         <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
           <label className="block">
@@ -123,7 +123,7 @@ function BetControls({
               placeholder="Enter bet"
               value={bet}
               onChange={(e) => setBet(e.target.value)}
-              className="input px-4 py-3 text-center font-semibold outline-none focus:border-white/25"
+              className="input px-4 py-3 text-center font-semibold outline-hidden focus:border-white/25"
               disabled={disabled}
             />
           </label>
@@ -135,7 +135,7 @@ function BetControls({
       </div>
 
       {setAutoRepeat && (
-        <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-white/72">
+        <div className="mt-4 flex flex-wrap items-center gap-3 text-sm ">
           <label className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.055] px-3 py-2">
             <input
               type="checkbox"
@@ -155,7 +155,7 @@ function BetControls({
               max="100"
               value={repeatLimit}
               onChange={(e) => setRepeatLimit(Number(e.target.value))}
-              className="w-20 rounded-2xl border border-white/10 bg-white/[0.06] px-3 py-2 text-center text-white outline-none"
+              className="w-20 rounded-2xl border border-white/10 bg-white/[0.06] px-3 py-2 text-center text-white outline-hidden"
               disabled={disabled || !autoRepeat}
             />
           </label>
@@ -175,9 +175,9 @@ function GameHeader({ label, title, description, balance }) {
   return (
     <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
       <div>
-        <p className="text-xs uppercase tracking-[0.32em] text-white/42">{label}</p>
+        <p className="text-xs uppercase tracking-[0.32em] ">{label}</p>
         <h2 className="mt-2 text-3xl font-black sm:text-4xl">{title}</h2>
-        <p className="mt-2 max-w-2xl text-sm leading-6 text-white/62">{description}</p>
+        <p className="mt-2 max-w-2xl text-sm leading-6 ">{description}</p>
       </div>
       <StatCard label="Balance" value={(balance ?? 0).toLocaleString()} tone="text-cyan-100" />
     </div>
@@ -300,7 +300,7 @@ function Roulette() {
         <select
           value={choice}
           onChange={(e) => setChoice(e.target.value)}
-          className="select px-4 py-3 outline-none"
+          className="select px-4 py-3 outline-hidden"
           disabled={spinning}
         >
           <option value="red">Red (2×)</option>
@@ -424,7 +424,7 @@ function CoinFlip() {
         <select
           value={guess}
           onChange={(e) => setGuess(e.target.value)}
-          className="select px-4 py-3 outline-none"
+          className="select px-4 py-3 outline-hidden"
           disabled={flipping}
         >
           <option value="heads">Heads (2×)</option>
@@ -588,7 +588,7 @@ function Slots() {
             key={i}
             animate={settledPulse ? { y: [0, -10, 0], scale: [1, 1.06, 1] } : {}}
             transition={{ delay: i * 0.08, duration: 0.35 }}
-            className="slot-symbol flex h-24 w-20 items-center justify-center rounded-[28px] border border-white/12 bg-gradient-to-br from-white/12 to-white/[0.03] p-1 shadow-inner sm:h-28 sm:w-24"
+            className="slot-symbol flex h-24 w-20 items-center justify-center rounded-[28px] border  bg-gradient-to-br  to-white/[0.03] p-1 shadow-inner sm:h-28 sm:w-24"
           >
             <SlotSymbol value={sym} />
           </motion.div>
@@ -733,7 +733,7 @@ function Blackjack() {
             value={bet}
             onChange={(e) => setBet(e.target.value)}
             disabled={loading || (state?.active && !state?.finished)}
-            className="input mt-2 px-4 py-3 text-white outline-none"
+            className="input mt-2 px-4 py-3 text-white outline-hidden"
             placeholder="Enter bet"
           />
         </div>

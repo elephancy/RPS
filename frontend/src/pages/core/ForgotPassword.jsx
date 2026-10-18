@@ -39,9 +39,9 @@ export default function ForgotPassword() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition focus:border-blue-300"
+          className="mt-2 w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-hidden transition focus:border-blue-300"
         />
-        <button disabled={loading} className="mt-5 w-full rounded-2xl border border-cyan-200/20 bg-cyan-300/12 px-4 py-3 font-bold text-cyan-50 transition hover:bg-cyan-300/20 disabled:opacity-60">
+        <button disabled={loading} className="mt-5 w-full rounded-2xl border border-cyan-200/20  px-4 py-3 font-bold text-cyan-50 transition hover:bg-cyan-300/20 disabled:opacity-60">
           {loading ? 'Sending...' : 'Send reset code'}
         </button>
         <Link to="/login" className="mt-4 block text-center text-sm text-white/55 hover:text-white">

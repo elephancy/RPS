@@ -118,19 +118,19 @@ export default function Tasks() {
                 <div className="pointer-events-none absolute -right-14 -top-14 h-36 w-36 rounded-full bg-white/10 blur-2xl" />
                 <div className="mb-4 flex items-start justify-between gap-3">
                   <div>
-                    <p className="text-xs uppercase tracking-[0.24em] text-white/42">{task.goalType}</p>
+                    <p className="text-xs uppercase tracking-[0.24em] ">{task.goalType}</p>
                     <h2 className="mt-1 text-xl font-black text-white">{task.title}</h2>
                   </div>
-                  <span className="rounded-full border border-white/10 bg-black/24 px-3 py-1 text-xs text-white/65">
+                  <span className="rounded-full border border-white/10  px-3 py-1 text-xs text-white/65">
                     {task.reward} coins
                   </span>
                 </div>
-                <p className="min-h-12 text-sm leading-6 text-white/62">{task.description}</p>
-                <div className="mt-5 flex items-center justify-between text-xs text-white/48">
+                <p className="min-h-12 text-sm leading-6 ">{task.description}</p>
+                <div className="mt-5 flex items-center justify-between text-xs ">
                   <span>{Number(task.progVal || 0).toLocaleString()} / {Number(task.goalAmount || 0).toLocaleString()}</span>
                   <span>{Math.floor(task.progress)}%</span>
                 </div>
-                <div className="mt-2 h-3 overflow-hidden rounded-full border border-white/10 bg-black/28">
+                <div className="mt-2 h-3 overflow-hidden rounded-full border border-white/10 ">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${task.progress}%` }}

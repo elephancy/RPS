@@ -15,8 +15,8 @@ const Modal = ({
   const close = onCancel || onClose;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center px-4">
-      <div className="relative w-full max-w-md overflow-hidden rounded-[28px] border border-white/12 bg-[linear-gradient(145deg,rgba(255,255,255,0.12),rgba(255,255,255,0.04))] p-6 text-white shadow-[0_28px_90px_rgba(0,0,0,0.42)] backdrop-blur-2xl animate-fade-in">
+    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center px-4">
+      <div className="relative w-full max-w-md overflow-hidden rounded-[28px] border  bg-[linear-gradient(145deg,rgba(255,255,255,0.12),rgba(255,255,255,0.04))] p-6 text-white shadow-[0_28px_90px_rgba(0,0,0,0.42)] backdrop-blur-2xl animate-fade-in">
         <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/70 to-transparent" />
         <button
           onClick={close}
@@ -26,7 +26,7 @@ const Modal = ({
           <X size={18} />
         </button>
         <h2 className="mb-3 pr-10 text-2xl font-black tracking-tight text-white">{title}</h2>
-        <div className="mb-6 text-base leading-6 text-white/68">
+        <div className="mb-6 text-base leading-6 ">
           {children || message}
         </div>
         <div className="flex justify-end gap-3">

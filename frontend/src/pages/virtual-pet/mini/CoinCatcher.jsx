@@ -227,7 +227,7 @@ export default function CoinCatcher({ critter, onExit }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/78 backdrop-blur-xl"
+      className="fixed inset-0 z-50 flex items-center justify-center  backdrop-blur-xl"
       onClick={() => {
         runningRef.current = false;
         quit();

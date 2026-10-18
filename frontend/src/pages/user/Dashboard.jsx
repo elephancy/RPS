@@ -411,7 +411,7 @@ export default function Dashboard() {
                 value={sendUsername}
                 onChange={e => setSendUsername(e.target.value)}
                 placeholder="Username"
-                className="w-full p-2 bg-white/10 text-white rounded"
+                className="w-full p-2 bg-white/10 text-white rounded-sm"
               />
               {sendUsername.trim().length >= 2 && (
                 <div className="mt-2 overflow-hidden rounded-2xl border border-white/10 bg-black/35">
@@ -439,7 +439,7 @@ export default function Dashboard() {
                 value={sendAmount}
                 onChange={e => setSendAmount(e.target.value)}
                 placeholder="0"
-                className="w-24 p-2 bg-white/10 text-white rounded"
+                className="w-24 p-2 bg-white/10 text-white rounded-sm"
               />
             </div>
             <ActionButton
@@ -473,7 +473,7 @@ export default function Dashboard() {
               value={tradeRecipient}
               onChange={e => setTradeRecipient(e.target.value)}
               placeholder="Recipient username"
-              className="input px-4 py-3 text-white outline-none"
+              className="input px-4 py-3 text-white outline-hidden"
             />
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
@@ -509,7 +509,7 @@ export default function Dashboard() {
                       min="0"
                       max={quantity}
                       disabled={disabled}
-                      className="mt-3 w-full rounded-2xl border border-white/10 bg-black/20 px-3 py-2 text-sm text-white outline-none focus:border-cyan-200/35"
+                      className="mt-3 w-full rounded-2xl border border-white/10 bg-black/20 px-3 py-2 text-sm text-white outline-hidden focus:border-cyan-200/35"
                       value={selectedItems[_id] || 0}
                       onChange={e =>
                         setSelectedItems(prev => ({
@@ -549,7 +549,7 @@ export default function Dashboard() {
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                   {trade.fromItems.map(({ name, image, price, quantity }, idx) => (
-                    <div key={idx} className="rounded-2xl border border-white/10 bg-black/18 p-3 text-sm">
+                    <div key={idx} className="rounded-2xl border border-white/10  p-3 text-sm">
                       {image ? (
                         <img
                           src={image.startsWith('http') ? image : `${API_BASE}${image}`}
@@ -571,7 +571,7 @@ export default function Dashboard() {
                     {formattedInventory.map(({ _id, name, image, quantity }) => {
                       const disabled = isItemFullyLocked(_id, quantity);
                       return (
-                        <div key={_id} className={`rounded-2xl border border-white/10 bg-black/18 p-3 ${disabled ? 'opacity-30 pointer-events-none' : ''}`}>
+                        <div key={_id} className={`rounded-2xl border border-white/10  p-3 ${disabled ? 'opacity-30 pointer-events-none' : ''}`}>
                           {image ? (
                             <img src={image} alt={name} className="w-10 h-10 mx-auto mb-1" />
                           ) : (
@@ -582,7 +582,7 @@ export default function Dashboard() {
                             type="number"
                             min="0"
                             max={quantity}
-                            className="mt-2 w-full rounded-xl border border-white/10 bg-black/20 px-2 py-1.5 text-xs text-white outline-none focus:border-cyan-200/35"
+                            className="mt-2 w-full rounded-xl border border-white/10 bg-black/20 px-2 py-1.5 text-xs text-white outline-hidden focus:border-cyan-200/35"
                             value={responseItems[_id] || 0}
                             onChange={e =>
                               setResponseItems(prev => ({
@@ -608,7 +608,7 @@ export default function Dashboard() {
                       </button>
                       <button
                         onClick={() => handleRespondToTrade(trade._id, 'deny')}
-                        className="rounded-2xl border border-rose-300/25 bg-rose-400/12 px-4 py-2 text-sm font-semibold text-rose-100 transition hover:bg-rose-400/20"
+                        className="rounded-2xl border border-rose-300/25  px-4 py-2 text-sm font-semibold text-rose-100 transition hover:bg-rose-400/20"
                       >
                         Deny
                       </button>
@@ -648,7 +648,7 @@ export default function Dashboard() {
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                   {trade.fromItems.map(({ name, image, price, quantity }, idx) => (
-                    <div key={idx} className="rounded-2xl border border-white/10 bg-black/18 p-3 text-sm">
+                    <div key={idx} className="rounded-2xl border border-white/10  p-3 text-sm">
                       {image ? (
                         <img
                           src={image.startsWith('http') ? image : `${API_BASE}${image}`}
@@ -670,7 +670,7 @@ export default function Dashboard() {
                     <h4 className="text-sm font-semibold text-white/80">Their Response:</h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                       {trade.toItems.map(({ name, image, price, quantity }, idx) => (
-                        <div key={idx} className="rounded-2xl border border-white/10 bg-black/18 p-3 text-sm">
+                        <div key={idx} className="rounded-2xl border border-white/10  p-3 text-sm">
                           {image ? (
                             <img
                               src={image.startsWith('http') ? image : `${API_BASE}${image}`}
@@ -736,7 +736,7 @@ export default function Dashboard() {
                       return (
                         <div
                           key={option._id}
-                          className={`flex items-center justify-between px-2 py-1 rounded ${yourPrediction ? 'bg-green-700/40' : 'bg-white/5'}`}
+                          className={`flex items-center justify-between px-2 py-1 rounded-sm ${yourPrediction ? 'bg-green-700/40' : 'bg-white/5'}`}
                         >
                           <span>{option.text}</span>
                           {yourPrediction && (
@@ -775,7 +775,7 @@ export default function Dashboard() {
                     ${isSelected ? 'ring-2 ring-pink-500' : ''}
                   `}
                 >
-                  <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/8 text-pink-100">
+                  <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10  text-pink-100">
                     <BadgeCheck className="h-5 w-5" />
                   </div>
                   <div className="font-medium">{badge.name}</div>

@@ -46,7 +46,7 @@ function DailyPrompt({ game }) {
             const col = index % size
             const queen = locked.has(`${row},${col}`)
             return (
-              <div key={index} className={`flex aspect-square items-center justify-center rounded-lg border text-[10px] ${queen ? 'border-cyan-200/50 bg-cyan-300/18 text-cyan-50' : missing.has(row) ? 'border-white/12 bg-white/[0.06]' : 'border-white/8 bg-black/20 text-white/25'}`}>
+              <div key={index} className={`flex aspect-square items-center justify-center rounded-lg border text-[10px] ${queen ? 'border-cyan-200/50  text-cyan-50' : missing.has(row) ? ' bg-white/[0.06]' : ' bg-black/20 text-white/25'}`}>
                 {queen ? 'Q' : `${row},${col}`}
               </div>
             )
@@ -62,7 +62,7 @@ function DailyPrompt({ game }) {
         <div className="text-xs text-white/50">Hidden stop: #{prompt.hiddenIndex}</div>
         <div className="flex flex-wrap gap-2">
           {(prompt.path || []).map((cell, index) => (
-            <span key={index} className="rounded-xl border border-white/10 bg-black/24 px-3 py-2 text-xs text-white/75">
+            <span key={index} className="rounded-xl border border-white/10  px-3 py-2 text-xs text-white/75">
               {index + 1}: {cell ? `${cell.r},${cell.c}` : '?'}
             </span>
           ))}
@@ -87,7 +87,7 @@ function DailyPrompt({ game }) {
   if (game.id === 'cipher-vault') {
     return (
       <div className="space-y-2">
-        <div className="rounded-2xl border border-white/10 bg-black/24 px-4 py-3 font-mono text-lg tracking-[0.22em] text-cyan-100">
+        <div className="rounded-2xl border border-white/10  px-4 py-3 font-mono text-lg tracking-[0.22em] text-cyan-100">
           {prompt.cipherText}
         </div>
         <div className="text-xs text-white/50">Shift back by {prompt.shift}</div>
@@ -108,7 +108,7 @@ function DailyPrompt({ game }) {
             const bomb = bombs.has(`${row},${col}`)
             const selected = prompt.clueCell?.row === row && prompt.clueCell?.col === col
             return (
-              <div key={index} className={`flex aspect-square items-center justify-center rounded-lg border text-xs ${selected ? 'border-amber-200/60 bg-amber-300/20 text-amber-50' : bomb ? 'border-rose-200/40 bg-rose-300/14 text-rose-100' : 'border-white/10 bg-black/20 text-white/35'}`}>
+              <div key={index} className={`flex aspect-square items-center justify-center rounded-lg border text-xs ${selected ? 'border-amber-200/60 bg-amber-300/20 text-amber-50' : bomb ? 'border-rose-200/40  text-rose-100' : 'border-white/10 bg-black/20 text-white/35'}`}>
                 {bomb ? 'M' : selected ? '?' : ''}
               </div>
             )
@@ -124,7 +124,7 @@ function DailyPrompt({ game }) {
         <div className="text-xs text-white/50">Start: {prompt.start?.r},{prompt.start?.c}</div>
         <div className="flex flex-wrap gap-2">
           {(prompt.route || []).map((direction, index) => (
-            <span key={`${direction}-${index}`} className="rounded-xl border border-white/10 bg-black/24 px-3 py-2 text-xs capitalize text-white/75">
+            <span key={`${direction}-${index}`} className="rounded-xl border border-white/10  px-3 py-2 text-xs capitalize text-white/75">
               {direction}
             </span>
           ))}
@@ -683,7 +683,7 @@ function Memory({ puzzle, onSolve }) {
             onClick={()=>click(i)}
             className={`
               flex h-14 w-14 cursor-pointer items-center justify-center rounded-2xl border text-lg font-black transition
-              ${(match.includes(i)||flip.includes(i))?'border-amber-200/40 bg-amber-300/25 text-amber-50 shadow-lg shadow-amber-900/20':'border-white/10 bg-white/8 text-transparent hover:bg-white/12'}
+              ${(match.includes(i)||flip.includes(i))?'border-amber-200/40 bg-amber-300/25 text-amber-50 shadow-lg shadow-amber-900/20':'border-white/10  text-transparent '}
             `}
           >{(match.includes(i)||flip.includes(i)) && v}</div>
         ))}
@@ -849,7 +849,7 @@ export function NQueens({ puzzle, onSolve }) {
                 onClick={()=>handleClick(r,c)}
                 className={`
                   relative flex cursor-pointer select-none items-center justify-center rounded-lg
-                  border border-white/8 transition duration-150 ease-in-out hover:scale-[1.04] hover:ring-2 hover:ring-indigo-200/70
+                  border  transition duration-150 ease-in-out hover:scale-[1.04] hover:ring-2 hover:ring-indigo-200/70
                   ${phase==='queen'||phase==='given'?'ring-2 ring-yellow-300':''}
                 `}
                 style={{ backgroundColor: `${bg}cc` }}
@@ -861,7 +861,7 @@ export function NQueens({ puzzle, onSolve }) {
                   `}>♛</span>
                 )}
                 {phase==='mark' && (
-                  <span className="text-3xl font-extrabold text-white drop-shadow-sm">
+                  <span className="text-3xl font-extrabold text-white drop-shadow-xs">
                     <span className="text-red-600">✕</span>
                   </span>
                 )}

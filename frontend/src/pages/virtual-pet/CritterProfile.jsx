@@ -108,7 +108,7 @@ export default function CritterProfile({ critter }) {
     <div className="mb-4 rounded-[32px] border border-white/10 bg-white/[0.055] p-5 shadow-2xl backdrop-blur-xl">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <div className="text-xs uppercase tracking-[0.28em] text-white/38">{data.rarity || 'Critter'}</div>
+          <div className="text-xs uppercase tracking-[0.28em] ">{data.rarity || 'Critter'}</div>
           <h4 className="mt-1 flex items-center gap-2 text-2xl font-black">
             {data.species}
             <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-white/60">Lvl {data.level}</span>
@@ -144,7 +144,7 @@ export default function CritterProfile({ critter }) {
               <select
                 value={selectedFood}
                 onChange={e => setSelectedFood(e.target.value)}
-                className="w-full rounded-2xl border border-white/10 bg-white/[0.06] px-3 py-2 text-sm text-white outline-none [&>option]:bg-slate-950"
+                className="w-full rounded-2xl border border-white/10 bg-white/[0.06] px-3 py-2 text-sm text-white outline-hidden [&>option]:bg-slate-950"
               >
                 <option value="">Select food</option>
                 {Object.entries(inventory.food).map(([k, v]) => (
@@ -158,7 +158,7 @@ export default function CritterProfile({ critter }) {
               <select
                 value={selectedToy}
                 onChange={e => setSelectedToy(e.target.value)}
-                className="w-full rounded-2xl border border-white/10 bg-white/[0.06] px-3 py-2 text-sm text-white outline-none [&>option]:bg-slate-950"
+                className="w-full rounded-2xl border border-white/10 bg-white/[0.06] px-3 py-2 text-sm text-white outline-hidden [&>option]:bg-slate-950"
               >
                 <option value="">Select toy</option>
                 {Object.entries(inventory.toys).map(([k, v]) => (
