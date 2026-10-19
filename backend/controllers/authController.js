@@ -52,6 +52,7 @@ exports.register = async (req, res) => {
       to: normalizedEmail,
       code: verificationCode,
       verifyUrl,
+      expiresAt: verificationExpires.toISOString(),
     });
 
     res.status(201).json({
@@ -190,6 +191,7 @@ exports.resendVerification = async (req, res) => {
       to: normalizedEmail,
       code: verificationCode,
       verifyUrl,
+      expiresAt: user.emailVerificationExpiresAt.toISOString(),
     });
 
     res.json({ message: 'Verification email resent' });
@@ -228,6 +230,7 @@ exports.requestPasswordReset = async (req, res) => {
       to: normalizedEmail,
       code: resetCode,
       resetUrl,
+      expiresAt: user.passwordResetExpiresAt.toISOString(),
     });
 
     res.json({ message: 'If that email exists, a reset code has been sent.' });
