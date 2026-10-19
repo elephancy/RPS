@@ -15,19 +15,19 @@ Express and MongoDB API for the RPS app.
 
 ```text
 backend/
-â”œâ”€â”€ controllers/
-â”œâ”€â”€ routes/
-â”œâ”€â”€ models/
-â”œâ”€â”€ middleware/
-â”œâ”€â”€ utils/
-â”œâ”€â”€ jobs/
-â”œâ”€â”€ scripts/
-â”œâ”€â”€ seeders/
-â”œâ”€â”€ public/
-â”‚   â””â”€â”€ assets/
-â”‚       â””â”€â”€ avatars/
-â”œâ”€â”€ uploads/
-â””â”€â”€ index.js
+├── controllers/
+├── routes/
+├── models/
+├── middleware/
+├── utils/
+├── jobs/
+├── scripts/
+├── seeders/
+├── public/
+│   └── assets/
+│       └── avatars/
+├── uploads/
+└── index.js
 ```
 
 ## Conventions
