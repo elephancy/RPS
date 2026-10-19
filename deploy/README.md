@@ -20,8 +20,12 @@ controller owns the live service definition, injects runtime values, verifies th
 release, and records signed deployment and rollback evidence.
 
 Uploaded media remains persistent state and must never be replaced or pruned by
-a code release. Database credentials, signing values, mail credentials, and other
-runtime secrets belong only in the controller-managed runtime environment.
+a code release. Database credentials, signing values, and other application
+secrets belong only in the controller-managed runtime environment. Notification
+templates, sender, transport and TLS policy belong in private Ops. The controller mounts the verified
+Ops notification bundle and protected project profile; this repository supplies
+only recipients, final authentication links, codes and their actual expiry.
+Mail credentials are never copied into this repository or its environment examples.
 
 ## Verification
 

@@ -11,7 +11,7 @@ const Achievement = require('../models/Achievement');
 const fs = require('fs/promises');
 const path = require('path');
 const mongoose = require('mongoose');
-const nodemailer = require('nodemailer');
+const { notificationStatus } = require('../utils/mailer');
 const { uploadsDir } = require('../utils/uploadStorage');
 
 function status(ok, details = {}) {
@@ -35,27 +35,14 @@ async function checkUploads() {
 }
 
 async function checkSmtp() {
-  const configured = Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS);
-  if (!configured) return status(false, { configured: false, message: 'SMTP env is incomplete' });
-
-  try {
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT || 587),
-      secure: Number(process.env.SMTP_PORT || 587) === 465,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-      connectionTimeout: 5000,
-      greetingTimeout: 5000,
-      socketTimeout: 5000,
-    });
-    await transporter.verify();
-    return status(true, { configured: true, host: process.env.SMTP_HOST, from: process.env.EMAIL_FROM || null });
-  } catch (err) {
-    return status(false, { configured: true, host: process.env.SMTP_HOST, message: err.message });
-  }
+  const configuration = notificationStatus();
+  return status(configuration.configured, {
+    ...configuration,
+    check: 'configuration',
+    message: configuration.configured
+      ? 'Ops notification configuration is ready; delivery has not been probed'
+      : 'Ops notification configuration is unavailable',
+  });
 }
 
 async function checkContentCounts() {
