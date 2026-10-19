@@ -10,7 +10,7 @@ permissions:
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
 
 jobs:
   lint-and-build:
@@ -45,10 +45,7 @@ jobs:
         run: npm audit --audit-level=high
 
       - name: Audit frontend dependencies
-        run: npm --prefix frontend audit --audit-level=high
-
-      - name: Audit frontend production dependencies
-        run: npm --prefix frontend audit --omit=dev --audit-level=high
+        run: npm --prefix frontend audit --include=dev --audit-level=high
 
       - name: Audit backend dependencies
         run: npm --prefix backend audit --audit-level=high
