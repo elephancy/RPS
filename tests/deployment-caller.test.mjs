@@ -31,7 +31,7 @@ test('application CI retains every audit, lint, build and backend gate', () => {
   ]) {
     assert.ok(ci.includes(command), `Required CI gate is missing: ${command}`);
   }
-  assert.equal((ci.match(/^\s*run: npm --prefix frontend audit\b/gm) || []).length, 1);
+  assert.equal((ci.match(/^\s*(?:-\s*)?run: npm --prefix frontend audit\b/gm) || []).length, 1);
 });
 
 test('application repository has no direct-host credential or command surface', () => {
