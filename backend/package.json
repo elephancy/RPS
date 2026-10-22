@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node tests/match3.test.js && node --test tests/mailer.test.js",
+    "test": "node scripts/runTests.js",
     "start": "node index.js",
     "dev": "node --watch index.js",
     "smoke:production": "node scripts/smokeProduction.js",
