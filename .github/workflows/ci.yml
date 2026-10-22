@@ -14,6 +14,8 @@ concurrency:
 
 jobs:
   lint-and-build:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
 
     steps:
@@ -57,7 +59,24 @@ jobs:
         run: npm --prefix frontend run build
 
       - name: Test backend and patched mail transport
-        run: npm --prefix backend test
+        run: npm --prefix backend test -- --coverage
+      - name: Preserve mail transport coverage
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: coverage-rps-mailer
+          path: backend/coverage/lcov.info
+          if-no-files-found: error
+          retention-days: 7
+      - name: Upload mail transport coverage to Codecov
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.CODECOV_UPLOAD_ENABLED == 'true'
+        uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.1.1
+        with:
+          use_oidc: false
+          files: ./backend/coverage/lcov.info
+          disable_search: true
+          fail_ci_if_error: true
+          version: v11.3.1
+          cleanup: true
 
       - name: Load backend modules
         run: node -e "require('./backend/controllers/authController'); require('./backend/controllers/gameController'); require('./backend/controllers/economyController'); require('./backend/routes/auth'); require('./backend/routes/games'); require('./backend/routes/economy'); console.log('backend modules loaded')"
