@@ -8,7 +8,7 @@ import { useAuth } from '../../context/AuthContext';
 import { API_BASE } from '../../api';
 import { PageFrame, PageHero, StatCard } from '../../components/ui/page';
 
-const fallbackAvatar = '/assets/avatars/default-avatar.png';
+const fallbackAvatar = '/assets/avatars/default-avatar.ico';
 
 const getProfileImage = (user) => {
   if (!user?.profileImage) return fallbackAvatar;

@@ -38,7 +38,7 @@ export default function PublicProfile() {
             ? data.profileImage.startsWith("http")
               ? data.profileImage
               : `${API_BASE}${data.profileImage}`
-            : "/assets/avatars/default-avatar.png",
+            : "/assets/avatars/default-avatar.ico",
         });
       } catch (err) {
         console.error(err);

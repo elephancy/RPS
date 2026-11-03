@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rps.elfeel.me/sitemap.xml

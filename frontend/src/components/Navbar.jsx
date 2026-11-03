@@ -104,7 +104,7 @@ export default function Navbar() {
             className="group flex items-center gap-2 rounded-2xl px-2 py-1.5 transition hover:bg-white/10 hover:shadow-[0_0_22px_rgba(255,255,255,0.18)]"
             aria-label="Home"
           >
-            <img src="/assets/brand/logo.png" alt="RPS logo" className="h-8 w-8 rounded-2xl object-cover shadow-lg shadow-black/20 ring-1 ring-white/10 transition group-hover:ring-white/50 group-hover:brightness-110" />
+            <img src="/assets/brand/logo.ico" alt="RPS logo" className="h-8 w-8 rounded-2xl object-cover shadow-lg shadow-black/20 ring-1 ring-white/10 transition group-hover:ring-white/50 group-hover:brightness-110" />
             <div className="leading-tight">
               <div className="text-sm font-extrabold tracking-[0.18em] uppercase text-white/95">RPS</div>
             </div>
