@@ -2,6 +2,8 @@
 
 RPS is a full-stack betting and arcade app with a React frontend, Express API, and MongoDB backend.
 
+Open the web app at [rps.elfeel.me](https://rps.elfeel.me/).
+
 ## Layout
 
 - `backend/` contains the API, models, routes, jobs, and seeders.

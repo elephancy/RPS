@@ -312,7 +312,7 @@ export default function Services() {
                   src={
                     service.provider?.profileImage
                       ? `${API_BASE}${service.provider.profileImage}`
-                      : '/assets/avatars/default-avatar.png'
+                      : '/assets/avatars/default-avatar.ico'
                   }
                   alt={service.provider?.username}
                   className="w-12 h-12 rounded-full border-2 border-white/20 object-cover"
@@ -345,7 +345,7 @@ export default function Services() {
                       src={
                         service.buyer.profileImage
                           ? `${API_BASE}${service.buyer.profileImage}`
-                          : '/assets/avatars/default-avatar.png'
+                          : '/assets/avatars/default-avatar.ico'
                       }
                       className="w-8 h-8 rounded-full"
                       alt={service.buyer.username}

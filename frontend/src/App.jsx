@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PageShell from './components/PageShell';
 import CookieConsent from './components/CookieConsent';
+import RouteMetadata from './components/RouteMetadata';
 
 import { AuthProvider } from './context/AuthContext';
 import { Toaster } from 'react-hot-toast';
@@ -80,6 +81,7 @@ function App() {
       <AuthProvider>
         <div className="flex flex-col min-h-screen">
           <Router>
+            <RouteMetadata />
             <Navbar />
             <Suspense fallback={<LoadingState label="Loading page" />}>
               <Routes>

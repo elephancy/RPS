@@ -142,7 +142,7 @@ export default function Home() {
                           ? user.profileImage.startsWith('http')
                             ? user.profileImage
                             : `${API_BASE}${user.profileImage}`
-                          : '/assets/avatars/default-avatar.png'
+                          : '/assets/avatars/default-avatar.ico'
                       }
                       alt={user.username}
                       className="w-9 h-9 rounded-full object-cover border border-white/10"
