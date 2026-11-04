@@ -24,4 +24,16 @@ for (const path of ['/login', '/register', '/verify-email', '/forgot-password', 
 const fallback = await (await fetch(origin + '/profile/example')).text();
 assert.ok(!fallback.includes('rel="canonical"') && !fallback.includes('name="robots"'));
 assert.equal((await fetch(origin + '/_seo/rules.html')).status, 404);
+for (const path of ['/assets/seo-missing.js', '/assets/seo-missing.css', '/assets/seo-missing.png']) {
+  for (const method of ['GET', 'HEAD']) {
+    const response = await fetch(origin + path, { method });
+    assert.equal(response.status, 404, `${method} ${path}`);
+    assert.ok(response.headers.get('content-security-policy'), path);
+  }
+}
+for (const path of ['/assets/brand/logo.ico', '/favicon.ico', '/site.webmanifest', '/robots.txt', '/sitemap.xml']) {
+  const response = await fetch(origin + path);
+  assert.equal(response.status, 200, path);
+  assert.ok(!response.headers.get('content-type').includes('text/html'), path);
+}
 console.log('Initial route metadata and Nginx fallback verified.');
