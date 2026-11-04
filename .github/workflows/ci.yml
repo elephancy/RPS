@@ -58,6 +58,19 @@ jobs:
       - name: Build frontend
         run: npm --prefix frontend run build
 
+      - name: Verify initial metadata through Nginx
+        run: |
+          set -euo pipefail
+          docker run -d --name rps-seo-smoke -p 127.0.0.1:18765:80 \
+            -v "$PWD/frontend/build:/usr/share/nginx/html:ro" \
+            -v "$PWD/frontend/nginx.conf:/etc/nginx/conf.d/default.conf:ro" nginx:1.27-alpine
+          trap 'docker rm -f rps-seo-smoke' EXIT
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:18765/ >/dev/null; then break; fi
+            sleep 1
+          done
+          node frontend/scripts/smoke-initial-metadata.mjs
+
       - name: Test backend and patched mail transport
         run: npm --prefix backend test -- --coverage
       - name: Preserve mail transport coverage
