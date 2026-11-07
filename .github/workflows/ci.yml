@@ -58,6 +58,9 @@ jobs:
       - name: Build frontend
         run: npm --prefix frontend run build
 
+      - name: Install browser for route regression
+        run: npx --prefix frontend playwright install --with-deps chromium
+
       - name: Verify initial metadata through Nginx
         run: |
           set -euo pipefail
@@ -70,6 +73,7 @@ jobs:
             sleep 1
           done
           node frontend/scripts/smoke-initial-metadata.mjs
+          node frontend/scripts/smoke-browser-routes.mjs
 
       - name: Test backend and patched mail transport
         run: npm --prefix backend test -- --coverage

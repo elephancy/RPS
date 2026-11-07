@@ -5,7 +5,7 @@
     "dev": "concurrently -n FRONT,API -c magenta,cyan \"cd frontend && npm run dev\" \"cd backend && npm run dev\"",
     "dev:win": "concurrently \"cd frontend && npm run dev\" \"cd backend && npm run dev\"",
     "install-all": "npm install && npm --prefix frontend install && npm --prefix backend install",
-    "lint": "eslint \"frontend/src/**/*.{js,jsx}\" \"backend/**/*.js\"",
+    "lint": "eslint \"frontend/src/**/*.{js,jsx,mjs}\" \"backend/**/*.js\"",
     "test": "npm --prefix backend test && npm --prefix frontend run smoke:routes && npm run test:deployment",
     "test:deployment": "node --test tests/deployment-caller.test.mjs",
     "format": "prettier -w frontend backend",

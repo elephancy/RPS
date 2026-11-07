@@ -14,7 +14,7 @@ import {
   BriefcaseBusiness
 } from 'lucide-react';
 import { EmptyState, PageFrame, StatCard } from '../../components/ui/page';
-import { homeFeatureRoutes } from '../../config/appRoutes';
+import { homeFeatureRoutes } from '../../config/appRoutes.mjs';
 
 const iconMap = {
   bets: CircleDollarSign,

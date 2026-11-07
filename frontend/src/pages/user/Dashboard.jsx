@@ -21,7 +21,7 @@ import { useAuth } from '../../context/AuthContext';
 import { API_BASE } from '../../api';
 import toast from 'react-hot-toast';
 import { ActionButton, EmptyState, LoadingState, PageFrame, PageHero, SectionHeader, StatCard } from '../../components/ui/page';
-import { dashboardRoutes } from '../../config/appRoutes';
+import { dashboardRoutes } from '../../config/appRoutes.mjs';
 import ItemMark from '../../components/ItemMark';
 
 const dashboardIconMap = {
