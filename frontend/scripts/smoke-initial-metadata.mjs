@@ -42,6 +42,31 @@ for (const path of ['/assets/brand/logo.ico', '/favicon.ico', '/favicon.svg', '/
 }
 console.log('Initial route metadata and Nginx fallback verified.');
 
+// Nginx's existing public-file normalization is a separate boundary from app
+// routing. These paths have no React route, but serve real non-HTML resources.
+for (const resource of ['/favicon.ico', '/assets/brand/logo.ico', '/sounds/cash-register.mp3', '/robots.txt']) {
+  const alias = '/unknown/..%2F' + resource.slice(1).replaceAll('/', '%2F');
+  assert.equal(matchRoutes(appRoutes, alias), null, alias);
+  const canonical = await fetch(origin + resource);
+  const canonicalBytes = Buffer.from(await canonical.arrayBuffer());
+  for (const method of ['GET', 'HEAD']) {
+    const response = await fetch(origin + alias, { method });
+    assert.equal(response.status, 200, `${method} ${alias}`);
+    assert.equal(response.headers.get('content-type'), canonical.headers.get('content-type'), alias);
+    assert.ok(!response.headers.get('content-type').includes('text/html'), alias);
+    assert.ok(response.headers.get('content-security-policy'), alias);
+    if (method === 'GET') assert.deepEqual(Buffer.from(await response.arrayBuffer()), canonicalBytes, alias);
+  }
+}
+for (const alias of ['/unknown/..%2Fassets%2Fseo-missing.js', '/unknown/..%2F_seo%2Frules.html', '/unknown/..%2F_rps-app-shell']) {
+  for (const method of ['GET', 'HEAD']) {
+    const response = await fetch(origin + alias, { method });
+    assert.equal(response.status, 404, `${method} ${alias}`);
+    if (method === 'GET') assert.ok((await response.text()).includes('name="robots" content="noindex,follow"'), alias);
+  }
+}
+console.log('Public static aliases retain identical bytes/MIME types; normalized missing and internal files remain 404.');
+
 for (const path of routeCases) {
   // URL normalizes dot segments and encodes raw Unicode before transmission,
   // just as browser navigation does. React Router sees that URL pathname.

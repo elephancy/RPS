@@ -20,11 +20,21 @@ therefore match such a username; an encoded prefix cannot.
 
 Known app routes return 200. Public metadata aliases (case, percent encoding and
 trailing slashes) canonicalize to their declared path. Account routes retain
-noindex. Unknown app paths return the existing app shell with HTTP 404, a page
-not found title and noindex. Client metadata uses React Router's `matchRoutes`
+noindex. Requests that match neither an app route nor a public static file
+return the existing app shell with HTTP 404, a page not found title and noindex.
+Client metadata uses React Router's `matchRoutes`
 and clears or restores directives during history and Link navigation. Real
 assets, sounds and public root files retain static serving; internal SEO shells
 and missing assets remain inaccessible/404. Security headers are retained.
+
+This is not a universal 404 guarantee for every path absent from React Router.
+Nginx retains its public-file URL normalization: for example,
+`/unknown/..%2Ffavicon.ico` returns the same public icon bytes as `/favicon.ico`
+with HTTP 200 and the icon MIME type. Such aliases serve an existing static
+resource, not the app's HTML shell. Regression checks compare bytes and content
+types for public asset aliases, and verify that normalized missing files and
+internal shell aliases still return 404. Valid app routes take precedence over
+these normalized static locations.
 
 Nginx itself rejects malformed percent escapes and encoded null bytes before
 route selection. Four such cases in the regression corpus were confirmed to
