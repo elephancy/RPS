@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { accountPaths, pages } from '../src/seoMetadata.mjs';
+import { renderNginxRouteMap } from './nginx-route-map.mjs';
 
 const shell = await readFile('build/index.html', 'utf8');
 const title = /<title>[^<]*<\/title>/g;
@@ -22,3 +23,7 @@ for (const path of [...Object.keys(pages), ...accountPaths]) {
     .replace(description, `<meta name="description" content="${escape(pageDescription)}" />\n    ${directive}`);
   await writeFile(`build/_seo/${path === '/' ? 'home' : path.slice(1)}.html`, html);
 }
+await writeFile('build/_seo/not-found.html', shell
+  .replace(title, '<title>Page not found | RPS Arcade</title>')
+  .replace(description, '<meta name="description" content="This RPS page could not be found." />\n    <meta name="robots" content="noindex,follow" />'));
+await writeFile('build/_seo/nginx-routes.map', renderNginxRouteMap());

@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const frontendRoot = path.join(__dirname, '..');
 const appSource = fs.readFileSync(path.join(frontendRoot, 'src', 'App.jsx'), 'utf8');
-const registrySource = fs.readFileSync(path.join(frontendRoot, 'src', 'config', 'appRoutes.js'), 'utf8');
+const registrySource = fs.readFileSync(path.join(frontendRoot, 'src', 'config', 'appRoutes.mjs'), 'utf8');
 
 const appPaths = [...appSource.matchAll(/<Route\s+path="([^"]+)"/g)]
   .map(match => match[1])
