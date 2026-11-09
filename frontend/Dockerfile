@@ -12,7 +12,7 @@ ENV VITE_API_URL=$VITE_API_URL
 
 RUN npm run build
 
-FROM nginx:1.27-alpine
+FROM nginx:1.29-alpine
 
 RUN sed -i 's@^[[:space:]]*pid[[:space:]].*;@pid /tmp/nginx.pid;@' /etc/nginx/nginx.conf \
     && grep -Fx 'pid /tmp/nginx.pid;' /etc/nginx/nginx.conf >/dev/null \
